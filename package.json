@@ -1,6 +1,9 @@
 {
 	"devDependencies": {
+		"@lib-env/build-constants": "workspace:*",
+		"@lib-env/build-utils": "workspace:*",
 		"@lib-env/eslint-config": "workspace:*",
+		"@types/gulp": "^4.0.9",
 		"@types/node": "^18.0.4",
 		"consola": "^2.15.3",
 		"eslint": "^8.19.0",
@@ -12,9 +15,11 @@
 	},
 	"dependencies": {
 		"@lib-env/path": "workspace:*",
-		"@lib-env/shared": "workspace:*"
+		"@lib-env/shared": "workspace:*",
+		"@vunk-core/shared": "workspace:*"
 	},
 	"scripts": {
+		"build":  "gulp -f scripts/build/index.ts",
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",
 		"run:test": "gulp -f scripts/test.ts"
