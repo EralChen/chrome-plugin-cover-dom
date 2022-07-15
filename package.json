@@ -1,0 +1,22 @@
+{
+	"devDependencies": {
+		"@lib-env/eslint-config": "workspace:*",
+		"@types/node": "^18.0.4",
+		"consola": "^2.15.3",
+		"eslint": "^8.19.0",
+		"eslint-define-config": "^1.5.1",
+		"eslint-plugin-vue": "^9.2.0",
+		"gulp": "^4.0.2",
+		"sucrase": "^3.24.0",
+		"unbuild": "^0.7.4"
+	},
+	"dependencies": {
+		"@lib-env/path": "workspace:*",
+		"@lib-env/shared": "workspace:*"
+	},
+	"scripts": {
+		"stub": "pnpm run -r --parallel stub",
+		"postinstall": "pnpm stub",
+		"run:test": "gulp -f scripts/test.ts"
+	}
+}
