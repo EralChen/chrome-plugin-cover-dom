@@ -12,10 +12,10 @@ export const isVisible = (element: HTMLElement) => {
 }
 
 export const obtainAllFocusableElements = (
-  element: HTMLElement
+  element: HTMLElement,
 ): HTMLElement[] => {
   return Array.from(
-    element.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENT_SELECTORS)
+    element.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENT_SELECTORS),
   ).filter((item: HTMLElement) => isFocusable(item) && isVisible(item))
 }
 
@@ -37,27 +37,27 @@ export const isFocusable = (element: HTMLElement): boolean => {
   }
 
   switch (element.nodeName) {
-    case 'A': {
-      // casting current element to Specific HTMLElement in order to be more type precise
-      return (
-        !!(element as HTMLAnchorElement).href &&
+  case 'A': {
+    // casting current element to Specific HTMLElement in order to be more type precise
+    return (
+      !!(element as HTMLAnchorElement).href &&
         (element as HTMLAnchorElement).rel !== 'ignore'
-      )
-    }
-    case 'INPUT': {
-      return !(
-        (element as HTMLInputElement).type === 'hidden' ||
+    )
+  }
+  case 'INPUT': {
+    return !(
+      (element as HTMLInputElement).type === 'hidden' ||
         (element as HTMLInputElement).type === 'file'
-      )
-    }
-    case 'BUTTON':
-    case 'SELECT':
-    case 'TEXTAREA': {
-      return true
-    }
-    default: {
-      return false
-    }
+    )
+  }
+  case 'BUTTON':
+  case 'SELECT':
+  case 'TEXTAREA': {
+    return true
+  }
+  default: {
+    return false
+  }
   }
 }
 
@@ -110,7 +110,7 @@ export const isLeaf = (el: HTMLElement) => !el.getAttribute('aria-owns')
 export const getSibling = (
   el: HTMLElement,
   distance: number,
-  elClass: string
+  elClass: string,
 ) => {
   const { parentNode } = el
   if (!parentNode) return null

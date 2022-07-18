@@ -3,7 +3,7 @@ export const on = (
   element: HTMLElement | Document | Window | Element,
   event: string,
   handler: EventListenerOrEventListenerObject,
-  useCapture = false
+  useCapture = false,
 ): void => {
   if (element && event && handler) {
     element?.addEventListener(event, handler, useCapture)
@@ -15,7 +15,7 @@ export const off = (
   element: HTMLElement | Document | Window | Element,
   event: string,
   handler: EventListenerOrEventListenerObject,
-  useCapture = false
+  useCapture = false,
 ): void => {
   if (element && event && handler) {
     element?.removeEventListener(event, handler, useCapture)
@@ -26,7 +26,7 @@ export const off = (
 export const once = (
   el: HTMLElement,
   event: string,
-  fn: EventListener
+  fn: EventListener,
 ): void => {
   const listener = function (this: any, ...args: any) {
     if (fn) {
@@ -40,7 +40,7 @@ export const once = (
 export const composeEventHandlers = <E>(
   theirsHandler?: (event: E) => boolean | void,
   oursHandler?: (event: E) => void,
-  { checkForDefaultPrevented = true } = {}
+  { checkForDefaultPrevented = true } = {},
 ) => {
   const handleEvent = (event: E) => {
     const shouldPrevent = theirsHandler?.(event)
