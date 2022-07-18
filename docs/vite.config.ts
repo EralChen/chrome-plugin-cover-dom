@@ -32,6 +32,7 @@ export default defineConfig(async ({ mode }) => {
   const optimizeDeps = [...new Set([...epDeps, ...docsDeps])].filter(
     (dep) =>
       !dep.startsWith('@types/') &&
+      // [TODO] dep
       !['@element-plus/metadata', 'element-plus'].includes(dep),
   )
 

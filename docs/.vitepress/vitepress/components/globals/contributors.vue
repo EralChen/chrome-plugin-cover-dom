@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import _contributors from '@element-plus/metadata/dist/contributors.json'
+// import _contributors from '@element-plus/metadata/dist/contributors.json'
 import VpLink from '../common/vp-link.vue'
-
+const _contributors = {}
 const props = defineProps<{ id: string }>()
 
 const contributors = computed(() => _contributors[props.id])
