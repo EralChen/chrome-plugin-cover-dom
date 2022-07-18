@@ -3,6 +3,8 @@
 		"@lib-env/build-constants": "workspace:*",
 		"@lib-env/build-utils": "workspace:*",
 		"@lib-env/eslint-config": "workspace:*",
+		"@lib-env/path": "workspace:*",
+		"@lib-env/shared": "workspace:*",
 		"@types/gulp": "^4.0.9",
 		"@types/node": "^18.0.4",
 		"consola": "^2.15.3",
@@ -15,15 +17,15 @@
 		"vue": "^3.2.37"
 	},
 	"dependencies": {
-		"@lib-env/path": "workspace:*",
-		"@lib-env/shared": "workspace:*",
 		"@vunk-core/components": "workspace:*",
 		"@vunk-core/shared": "workspace:*"
 	},
 	"scripts": {
+		"dev": "pnpm run docs:dev",
 		"build": "gulp -f scripts/build/index.ts",
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",
+		"docs:dev": "pnpm run -C docs dev",
 		"run:test": "gulp -f scripts/test.ts"
 	}
 }
