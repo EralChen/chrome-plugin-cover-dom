@@ -1,23 +1,23 @@
 import {series} from 'gulp'
-
 import path from 'path'
 import glob from 'fast-glob'
 import { distDir } from '@lib-env/path'
 import { taskWithName } from '@lib-env/shared'
 import { filePathIgnore } from '@lib-env/build-constants'
-import { rollupFile } from '@lib-env/build-utils'
+import { genTypes, rollupFile } from '@lib-env/build-utils'
+import consola from 'consola'
 
 const getOutputFile = (filePath: string) => path.resolve(
   distDir, 
-  `./shared/${
+  `shared/${
     path
-      .relative(path.resolve(__dirname, './'), filePath)
+      .relative(path.resolve(__dirname), filePath)
       .replace('.ts', '.js')
   }`,
 )
 
-
 export default series(
+
   taskWithName('bundleSharedJs', async () => {
 
     const filePaths = await glob('**/*', {
@@ -33,10 +33,18 @@ export default series(
         outputFile: getOutputFile(item),
         format: 'esm',
       })
+      consola.info(
+        item, 
+        path.resolve(distDir, './shared'),
+      )
     })
 
   }),
 
+  taskWithName('genSharedTypes', async () => {
+    genTypes({
+      filesRoot: path.resolve(__dirname),
+    })
+  }),
 
-  
 )

@@ -74,7 +74,6 @@ export async function rollupFile (opts: {
     ],
   }
   const outConfig: OutputOptions = {
-    
     format: 'esm',
     file: opts.outputFile,
     paths: fixPath,
