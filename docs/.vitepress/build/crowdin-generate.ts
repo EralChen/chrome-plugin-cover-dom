@@ -2,14 +2,14 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 import consola from 'consola'
-import { docRoot, errorAndExit } from '@element-plus/build-utils'
-
+import { docRoot } from '@lib-env/path'
+import { errorAndExit } from '@lib-env/shared'
 // NB: this file is only for generating files that enables developers to develop the website.
 const componentLocaleRoot = path.resolve(docRoot, '.vitepress/crowdin')
 
 const exists = 'File already exists'
 
-async function main() {
+async function main () {
   const localeOutput = path.resolve(docRoot, '.vitepress/i18n')
   if (fs.existsSync(localeOutput)) {
     throw new Error(exists)
@@ -29,7 +29,7 @@ async function main() {
   await fs.promises.writeFile(
     path.resolve(localeOutput, 'lang.json'),
     JSON.stringify(languages),
-    'utf-8'
+    'utf-8',
   )
 
   // loop through en-US
@@ -47,10 +47,10 @@ async function main() {
   await traverseDir(enUS, languagePaths, localeOutput)
 }
 
-async function traverseDir(
+async function traverseDir (
   dir: string,
   paths: { name: string; pathname: string }[],
-  targetPath: string
+  targetPath: string,
 ) {
   const contents = await fs.promises.readdir(dir, { withFileTypes: true })
 
@@ -69,7 +69,7 @@ async function traverseDir(
               pathname: path.resolve(p.pathname, c.name),
             }
           }),
-          path.resolve(targetPath, c.name)
+          path.resolve(targetPath, c.name),
         )
       } else if (c.isFile()) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -85,7 +85,7 @@ async function traverseDir(
             const content = require(path.resolve(p.pathname, c.name))
 
             contentToWrite[p.name] = content
-          })
+          }),
         )
 
         return fs.promises.writeFile(
@@ -93,10 +93,10 @@ async function traverseDir(
           JSON.stringify(contentToWrite, null, 2),
           {
             encoding: 'utf-8',
-          }
+          },
         )
       }
-    })
+    }),
   )
 }
 

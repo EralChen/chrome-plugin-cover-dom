@@ -2,10 +2,10 @@ import path from 'path'
 import fs from 'fs'
 import MarkdownIt from 'markdown-it'
 import mdContainer from 'markdown-it-container'
-import { docRoot } from '@element-plus/build-utils'
 import { highlight } from '../utils/highlight'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
+import { docRoot } from '@lib-env/path'
 
 const localMd = MarkdownIt()
 
@@ -23,11 +23,11 @@ interface ContainerOpts {
 
 export const mdPlugin = (md: MarkdownIt) => {
   md.use(mdContainer, 'demo', {
-    validate(params) {
+    validate (params) {
       return !!params.trim().match(/^demo\s*(.*)$/)
     },
 
-    render(tokens, idx) {
+    render (tokens, idx) {
       const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
       if (tokens[idx].nesting === 1 /* means the tag is opening */) {
         const description = m && m.length > 1 ? m[1] : ''
@@ -38,15 +38,15 @@ export const mdPlugin = (md: MarkdownIt) => {
         if (sourceFileToken.type === 'inline') {
           source = fs.readFileSync(
             path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
-            'utf-8'
+            'utf-8',
           )
         }
         if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
 
         return `<Demo :demos="demos" source="${encodeURIComponent(
-          highlight(source, 'vue')
+          highlight(source, 'vue'),
         )}" path="${sourceFile}" raw-source="${encodeURIComponent(
-          source
+          source,
         )}" description="${encodeURIComponent(localMd.render(description))}">`
       } else {
         return '</Demo>'

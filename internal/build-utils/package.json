@@ -10,6 +10,7 @@
     "stub": "unbuild --stub"
   },
   "devDependencies": {
+    "@pnpm/types": "^8.4.0",
     "@vue/compiler-sfc": "^3.2.37",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-vue": "^6.0.0",

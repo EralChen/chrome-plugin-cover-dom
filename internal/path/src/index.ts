@@ -14,3 +14,8 @@ export const distTypesDir = path.resolve(distDir, './types')
 export const docsDirName = 'docs'
 export const docRoot = path.resolve(workRoot, docsDirName)
 export const vpRoot = path.resolve(docRoot, '.vitepress')
+
+
+// package.json
+export const docPackage = path.resolve(docRoot, 'package.json')
+export const entryPackage = path.relative(pkgEntryDir, 'package.json')

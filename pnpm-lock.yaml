@@ -41,13 +41,18 @@ importers:
       unbuild: 0.7.4
       vue: 3.2.37
 
+  internal/build-constants:
+    specifiers: {}
+
   internal/build-utils:
     specifiers:
+      '@pnpm/types': ^8.4.0
       '@vue/compiler-sfc': ^3.2.37
       rollup-plugin-css-only: ^3.1.0
       rollup-plugin-vue: ^6.0.0
       ts-morph: ^15.1.0
     devDependencies:
+      '@pnpm/types': 8.4.0
       '@vue/compiler-sfc': 3.2.37
       rollup-plugin-css-only: 3.1.0
       rollup-plugin-vue: 6.0.0_@vue+compiler-sfc@3.2.37
@@ -67,6 +72,15 @@ importers:
     specifiers: {}
 
   internal/shared:
+    specifiers: {}
+
+  packages/components:
+    specifiers: {}
+
+  packages/entry:
+    specifiers: {}
+
+  packages/shared:
     specifiers: {}
 
 packages:
@@ -358,6 +372,11 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@pnpm/types/8.4.0:
+    resolution: {integrity: sha512-sq/UdSq/jWCpYglw9SFmvR8qzUEi0p2oZIO0AHjkWWQg4Qrolf6DgD0WWmLiEP2WxHjbYeyD3ZzWzQor1+6cvw==}
+    engines: {node: '>=14.6'}
+    dev: true
 
   /@rollup/plugin-alias/3.1.9_rollup@2.76.0:
     resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
