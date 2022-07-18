@@ -43,7 +43,7 @@ const formatPathDemos = computed(() => {
 
 const locale = computed(() => demoBlockLocale[lang.value])
 const decodedDescription = computed(() =>
-  decodeURIComponent(props.description!)
+  decodeURIComponent(props.description!),
 )
 
 const onPlaygroundClick = () => {

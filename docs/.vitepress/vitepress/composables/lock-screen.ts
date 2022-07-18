@@ -33,7 +33,7 @@ export const useLockScreen = () => {
       bodyPaddingRight = document.body.style.paddingRight
       computedBodyPaddingRight = Number.parseInt(
         getStyle(document.body, 'paddingRight'),
-        10
+        10,
       )
     }
     scrollBarWidth = getScrollBarWidth()

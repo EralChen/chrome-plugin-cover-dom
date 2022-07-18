@@ -18,4 +18,4 @@ export const vpRoot = path.resolve(docRoot, '.vitepress')
 
 // package.json
 export const docPackage = path.resolve(docRoot, 'package.json')
-export const entryPackage = path.relative(pkgEntryDir, 'package.json')
+export const entryPackage = path.resolve(pkgEntryDir, 'package.json')

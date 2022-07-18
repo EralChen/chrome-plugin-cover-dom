@@ -15,7 +15,10 @@
       "@vunk/form": ["../packages/entry"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
-    "types": ["./typings/element-plus"],
+    "types": [
+      "./typings/element-plus", 
+      "../typings/vue-shim"
+  ],
     "jsx": "preserve"
   },
   "include": ["**/*", ".vitepress/**/*"],

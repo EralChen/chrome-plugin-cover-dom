@@ -1,12 +1,12 @@
 import 'normalize.css'
-// import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css'
 
 // for dev
 // reset
-import '../../../packages/theme-chalk/src/reset.scss'
-import '../../../packages/theme-chalk/src/index.scss'
+// import 'element-plus/theme-chalk/src/reset.scss'
+// import 'element-plus/packages/theme-chalk/src/index.scss'
 // for dark mode
-import '../../../packages/theme-chalk/src/dark/css-vars.scss'
+// import 'element-plus/packages/theme-chalk/src/dark/css-vars.scss'
 
 import './styles/css-vars.scss'
 import './styles/app.scss'
