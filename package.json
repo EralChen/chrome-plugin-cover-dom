@@ -11,15 +11,17 @@
 		"eslint-plugin-vue": "^9.2.0",
 		"gulp": "^4.0.2",
 		"sucrase": "^3.24.0",
-		"unbuild": "^0.7.4"
+		"unbuild": "^0.7.4",
+		"vue": "^3.2.37"
 	},
 	"dependencies": {
 		"@lib-env/path": "workspace:*",
 		"@lib-env/shared": "workspace:*",
+		"@vunk-core/components": "workspace:*",
 		"@vunk-core/shared": "workspace:*"
 	},
 	"scripts": {
-		"build":  "gulp -f scripts/build/index.ts",
+		"build": "gulp -f scripts/build/index.ts",
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",
 		"run:test": "gulp -f scripts/test.ts"
