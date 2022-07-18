@@ -25,18 +25,6 @@ const alias: Alias[] = [
     replacement: `${path.resolve(__dirname, './.vitepress/vitepress')}/`,
   },
 ]
-if (process.env.DOC_ENV !== 'production') {
-  alias.push(
-    {
-      find: /^element-plus(\/(es|lib))?$/,
-      replacement: path.resolve(projRoot, 'packages/element-plus/index.ts'),
-    },
-    {
-      find: /^element-plus\/(es|lib)\/(.*)$/,
-      replacement: `${path.resolve(projRoot, 'packages')}/$2`,
-    }
-  )
-}
 
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -47,14 +35,14 @@ export default defineConfig(async ({ mode }) => {
   const optimizeDeps = [...new Set([...epDeps, ...docsDeps])].filter(
     (dep) =>
       !dep.startsWith('@types/') &&
-      !['@element-plus/metadata', 'element-plus'].includes(dep)
+      !['@element-plus/metadata', 'element-plus'].includes(dep),
   )
 
   optimizeDeps.push(
     ...(await glob(['dayjs/plugin/*.js'], {
       cwd: path.resolve(projRoot, 'node_modules'),
       onlyFiles: true,
-    }))
+    })),
   )
 
   return {

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { vpRoot } from '@element-plus/build-utils'
+import { vpRoot } from '@lib-env/path'
 import { languages } from '../utils/lang'
 
 import type { HeadConfig } from 'vitepress'

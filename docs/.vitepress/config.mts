@@ -1,6 +1,6 @@
 import consola from 'consola'
-import { REPO_BRANCH, REPO_PATH } from '@element-plus/build-constants'
-import { docsDirName } from '@element-plus/build-utils'
+import { REPO_BRANCH, REPO_PATH } from '@lib-env/build-constants'
+import { docsDirName } from '@lib-env/path'
 import { languages } from './utils/lang'
 import { head } from './config/head'
 import { sidebars } from './config/sidebars'
@@ -53,6 +53,7 @@ export const config: UserConfig = {
   themeConfig: {
     repo: REPO_PATH,
     docsBranch: REPO_BRANCH,
+
     docsDir: docsDirName,
 
     editLinks: true,
