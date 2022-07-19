@@ -2,7 +2,7 @@ export const sendEvent = (
   action: string,
   label: string,
   value?: any,
-  category?: string
+  category?: string,
 ): void => {
   const gtag = (window as any).gtag
   if (gtag) {

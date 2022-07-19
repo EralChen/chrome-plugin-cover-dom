@@ -14,7 +14,7 @@ const jumbotronRef = ref<HTMLElement | null>(null)
 const lang = useLang()
 const homeLang = computed(() => homeLocale[lang.value])
 
-function jumpTo(path: string) {
+function jumpTo (path: string) {
   // vitepress has not router
   location.href = `/${lang.value}/${path}`
 }
@@ -141,7 +141,8 @@ useEventListener(window, 'scroll', handleScroll)
       alt="banner"
       class="mobile-banner"
     />
-    <HomeSponsors />
+    <!-- <HomeSponsors /> -->
+    <HomeThanks></HomeThanks>
     <HomeCards />
   </div>
   <HomeFooter />

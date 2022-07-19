@@ -5,8 +5,9 @@ import 'element-plus/dist/index.css'
 // reset
 // import 'element-plus/theme-chalk/src/reset.scss'
 // import 'element-plus/packages/theme-chalk/src/index.scss'
+
 // for dark mode
-// import 'element-plus/packages/theme-chalk/src/dark/css-vars.scss'
+import 'element-plus/theme-chalk/src/dark/css-vars.scss'
 
 import './styles/css-vars.scss'
 import './styles/app.scss'

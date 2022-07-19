@@ -64,7 +64,8 @@ export const head: HeadConfig[] = [
     'script',
     {
       async: 'true',
-      src: 'https://www.googletagmanager.com/gtag/js?id=UA-175337989-1',
+      // [TODO] gtagId
+      src: 'https://www.googletagmanager.com/gtag/js?id=UA-xx',
     },
   ],
   [
@@ -89,13 +90,14 @@ export const head: HeadConfig[] = [
     `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'UA-175337989-1');`,
+gtag('config', 'UA-xx');`,
   ],
   [
     'script',
     {
       async: 'true',
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-M74ZHEQ1M1',
+      // [TODO] gtagId
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-xxx',
     },
   ],
   [
@@ -106,7 +108,7 @@ gtag('config', 'UA-175337989-1');`,
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-M74ZHEQ1M1');
+      gtag('config', 'G-xxx');
     `,
   ],
   [

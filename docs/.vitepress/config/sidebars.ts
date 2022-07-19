@@ -2,21 +2,21 @@ import { ensureLang } from '../utils/lang'
 import guideLocale from '../i18n/pages/guide.json'
 import componentLocale from '../i18n/pages/component.json'
 
-function getGuideSidebar() {
+function getGuideSidebar () {
   return Object.fromEntries(
     Object.entries(guideLocale).map(([lang, val]) => [
       lang,
       Object.values(val).map((item) => mapPrefix(item, lang)),
-    ])
+    ]),
   )
 }
 
-function getComponentsSideBar() {
+function getComponentsSideBar () {
   return Object.fromEntries(
     Object.entries(componentLocale).map(([lang, val]) => [
       lang,
       Object.values(val).map((item) => mapPrefix(item, lang, '/component')),
-    ])
+    ]),
   )
 }
 
@@ -35,7 +35,7 @@ type Item = {
   link?: string
 }
 
-function mapPrefix(item: Item, lang: string, prefix = '') {
+function mapPrefix (item: Item, lang: string, prefix = '') {
   if (item.children && item.children.length > 0) {
     return {
       ...item,

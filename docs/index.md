@@ -1,6 +1,6 @@
 ---
-title: 'A Vue 3 UI Framework'
-lang: en-US
+title: '@vunk/core'
+lang: zh-CN
 page: true
 ---
 
