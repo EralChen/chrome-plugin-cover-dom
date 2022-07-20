@@ -11,6 +11,7 @@ export default define<Theme>({
   Layout: VPApp,
   enhanceApp: ({ app }) => {
     app.use(ElementPlus)
+  
 
     globals.forEach(([name, Comp]) => {
       app.component(name, Comp)

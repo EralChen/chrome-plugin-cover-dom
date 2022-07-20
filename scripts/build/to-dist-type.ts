@@ -5,9 +5,9 @@ import fs from 'fs'
 import { distDir, distTypesDir } from '@lib-env/path'
 import { fixDtsPaths } from '@lib-env/build-utils'
 import path from 'path'
+import { LIB_ENTRY_DIRNAME, LIB_ENTRY_FLIENAME } from '@lib-env/build-constants'
 
 export default series(
-  // 并行打包 packages 下的内容
   taskWithName('fix dts path in distTypesDir', async () => {
     await fixDtsPaths({
       filesRoot: distTypesDir,
@@ -15,15 +15,15 @@ export default series(
   }),
 
   taskWithName('to-dist-type', async () => {
-    const coreDirOrigin = await fsp.readdir(distDir, { withFileTypes: true })
+    const distDirFiles = await fsp.readdir(distDir, { withFileTypes: true })
 
-    const coreDirNames = coreDirOrigin.filter(item => {
+    const coreDirNames = distDirFiles.filter(item => {
       return item.isDirectory() 
       && 
       path.resolve(distDir, item.name) !== distTypesDir
     }).map(item => item.name)
 
-    const cpToCoreDir = async (dir: string) => {
+    const cpIntoCoreDir = async (dir: string) => {
       const files = await fsp.readdir(dir, { withFileTypes: true })
       await Promise.all(
         files.map(async item => {
@@ -36,12 +36,26 @@ export default series(
       )
     }
 
-    await cpToCoreDir(distTypesDir)
+    await cpIntoCoreDir(distTypesDir)
     /* 有可能 type打包目录在 packages */
     const distTypesPkgsDir = path.resolve(distTypesDir, 'packages')
     if (fs.existsSync(distTypesPkgsDir)) {
-      await cpToCoreDir(distTypesPkgsDir)
+      await cpIntoCoreDir(distTypesPkgsDir)
     }
+
+    /* 如果 distTypesDir 中存在 entry, 将entry中的文件 拷贝到dist */
+    const distTypesEntryDir = path.resolve(distTypesDir, LIB_ENTRY_DIRNAME)
+    if (fs.existsSync(distTypesEntryDir)) {
+      await fsp.cp(distTypesEntryDir, distDir, {
+        recursive: true,
+      })
+    }
+
+    const distEntryDts = path.resolve(distDir, `${LIB_ENTRY_FLIENAME}.d.ts`)
+    if (fs.existsSync(distEntryDts)) {
+      await fsp.rename(distEntryDts, path.resolve(distDir, `index.d.ts`))
+    }
+
     
   }),
 

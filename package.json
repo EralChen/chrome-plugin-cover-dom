@@ -21,6 +21,7 @@
 	"dependencies": {
 		"@element-plus/utils": "workspace:*",
 		"@vueuse/core": "^8.7.5",
+		"@vunk/core": "workspace:*",
 		"@vunk-core/components": "workspace:*",
 		"@vunk-core/shared": "workspace:*"
 	},

@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "lib": ["WebWorker"],
     "paths": {
-      "@vunk/form": ["../packages/entry"],
+      "@vunk/core": ["../packages/entry"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
     "types": [

@@ -15,6 +15,7 @@ importers:
       '@vueuse/core': ^8.7.5
       '@vunk-core/components': workspace:*
       '@vunk-core/shared': workspace:*
+      '@vunk/core': workspace:*
       consola: ^2.15.3
       eslint: ^8.19.0
       eslint-define-config: ^1.5.1
@@ -30,6 +31,7 @@ importers:
       '@vueuse/core': 8.9.4_vue@3.2.37
       '@vunk-core/components': link:packages/components
       '@vunk-core/shared': link:packages/shared
+      '@vunk/core': link:packages/entry
     devDependencies:
       '@lib-env/build-constants': link:internal/build-constants
       '@lib-env/build-utils': link:internal/build-utils
