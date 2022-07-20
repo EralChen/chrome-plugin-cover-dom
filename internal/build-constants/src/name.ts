@@ -2,7 +2,7 @@ export const LIB_NAME = '@vunk/core'
 export const LIB_ALIAS = LIB_NAME.replace('/', '-') as '@vunk-core'
 export const LIB_PRE = 'vk'
 export const LIB_ENTRY_DIRNAME = 'entry'
-export const LIB_ENTRY_FLIENAME = 'main'
+export const LIB_ENTRY_FLIENAME = 'index'
 
 export const REPO_OWNER = 'vunk'
 export const REPO_NAME = '@vunk/core'

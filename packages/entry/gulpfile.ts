@@ -1,14 +1,14 @@
-import {series, parallel} from 'gulp'
+import { series, parallel } from 'gulp'
 import path from 'path'
-import fs from 'fs/promises'
 import { taskWithName } from '@lib-env/shared'
-import { fixPath, genTypes, rollupFile } from '@lib-env/build-utils'
+import { genTypes, rollupFile } from '@lib-env/build-utils'
 import { distDir, pkgEntryDir } from '@lib-env/path'
+import { LIB_ENTRY_FLIENAME } from '@lib-env/build-constants'
 
 export default series(
   taskWithName('bundleFullEntry', async ()=> {
     rollupFile({
-      inputFile: path.resolve(pkgEntryDir, './main.ts'),
+      inputFile: path.resolve(pkgEntryDir, `./${LIB_ENTRY_FLIENAME}.ts`),
       outputFile: path.resolve(distDir, './index.esm.js'),
       format: 'esm',
     })
