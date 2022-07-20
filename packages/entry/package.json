@@ -2,6 +2,7 @@
   "name": "@vunk/core",
   "version": "0.0.0-alpha.0",
   "description": "",
+  "main": "index.ts",
   "scripts": {
     "build": "gulp -f gulpfile.ts"
   },

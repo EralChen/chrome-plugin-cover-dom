@@ -1,10 +1,10 @@
 import { App } from 'vue'
-import VkCard from './src/index.vue'
+import VkDuplex from './src/index.vue'
 
-VkCard.install = (app: App): void => {
-  app.component(VkCard.name, VkCard)
+VkDuplex.install = (app: App): void => {
+  app.component(VkDuplex.name, VkDuplex)
 }
 export {
-  VkCard,
+  VkDuplex,
 }
-export default VkCard
+export default VkDuplex

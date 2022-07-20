@@ -15,12 +15,9 @@
       "@vunk/core": ["../packages/entry"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
-    "types": [
-      "./typings/element-plus", 
-      "../typings/vue-shim"
-  ],
+
     "jsx": "preserve"
   },
-  "include": ["**/*", ".vitepress/**/*"],
+  "include": ["**/*", ".vitepress/**/*", "../typings/components.d.ts"],
   "exclude": ["node_modules"]
 }
