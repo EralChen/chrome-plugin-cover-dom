@@ -48,8 +48,6 @@ declare module '@vue/runtime-core' {
     RightLayerSvg: typeof import('./.vitepress/vitepress/components/home/svg/right-layer-svg.vue')['default']
     RightLogoSmallList: typeof import('./.vitepress/vitepress/components/sponsors/right-logo-small-list.vue')['default']
     RightRichtextList: typeof import('./.vitepress/vitepress/components/sponsors/right-richtext-list.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
     ScreenSvg: typeof import('./.vitepress/vitepress/components/home/svg/screen-svg.vue')['default']
     SecondaryColors: typeof import('./.vitepress/vitepress/components/globals/secondary-colors.vue')['default']
     SketchTemplateSvg: typeof import('./.vitepress/vitepress/components/globals/resources/sketch-template-svg.vue')['default']

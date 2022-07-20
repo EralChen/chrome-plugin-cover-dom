@@ -31,6 +31,7 @@
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",
 		"docs:dev": "pnpm run -C docs dev",
+		"docs:build": "pnpm run -C docs build",
 		"run:test": "gulp -f scripts/test.ts"
 	}
 }
