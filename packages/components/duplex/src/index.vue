@@ -21,23 +21,32 @@ export default defineComponent({
 </script>
 <template>
   <div class="vk-duplex" :style="style">
-
-    <div class="vk-duplex-1">
+    <div class="vk-duplex-1" :class="{
+      'with-flex': withFlex === 'both' || withFlex === 'one',
+      'with-overflow': withOverflow === 'both' || withOverflow === 'one'
+    }">
       <slot name="one"></slot>
     </div>
-
-    <div class="vk-duplex-2">
+    <div class="vk-duplex-2"
+      :class="{
+        'with-flex': withFlex === 'both' || withFlex === 'two',
+        'with-overflow': withOverflow === 'both' || withOverflow === 'two'
+      }"
+    >
       <slot name="two"></slot>
       <slot></slot>
     </div>
-
   </div>
 </template>
 <style>
+.vk-duplex{
+  display: flex;
+  flex-direction: column;
+}
 [class^="vk-duplex-"].with-flex {
   flex: var(--vk-duplex-flex);
 }
 [class^="vk-duplex-"].with-overflow {
-  flex: var(--vk-duplex-overflow);
+  overflow: var(--vk-duplex-overflow);
 }
 </style>

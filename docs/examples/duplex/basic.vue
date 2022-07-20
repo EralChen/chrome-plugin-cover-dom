@@ -2,7 +2,7 @@
 
 </script>
 <template>
-  <VkDuplex class="duplex-demo" >
+  <VkDuplex class="duplex-demo">
     <template #one>
       one
     </template>

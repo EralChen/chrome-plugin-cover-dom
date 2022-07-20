@@ -11,7 +11,7 @@ const loadLanguages = require('prismjs/components/index')
 // required to make embedded highlighting work...
 loadLanguages(['markup', 'css', 'javascript'])
 
-function wrap(code: string, lang: string): string {
+function wrap (code: string, lang: string): string {
   if (lang === 'text') {
     code = escapeHtml(code)
   }
@@ -43,8 +43,8 @@ export const highlight = (str: string, lang: string) => {
       // eslint-disable-next-line no-console
       consola.warn(
         chalk.yellow(
-          `[vitepress] Syntax highlight for language "${lang}" is not supported.`
-        )
+          `[vitepress] Syntax highlight for language "${lang}" is not supported.`,
+        ),
       )
     }
   }
