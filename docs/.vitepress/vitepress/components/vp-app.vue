@@ -72,7 +72,7 @@ onMounted(async () => {
         }
       }
     },
-    { capture: true }
+    { capture: true },
   )
 
   if (lang.value === 'zh-CN') {
@@ -95,16 +95,17 @@ onMounted(async () => {
         {
           confirmButtonText: '跳转',
           cancelButtonText: '取消',
-        }
+        },
       )
       const toLang = '/zh-CN/'
       location.href = `https://element-plus.gitee.io${toLang}${location.pathname.slice(
-        toLang.length
+        toLang.length,
       )}`
     } catch {
       userPrefer.value = String(dayjs().unix())
     }
   }
+
   // unregister sw
   navigator?.serviceWorker?.getRegistrations().then((registrations) => {
     for (const registration of registrations) {
@@ -125,7 +126,7 @@ onMounted(async () => {
     <VPSubNav v-if="hasSidebar" @open-menu="toggleSidebar(true)" />
     <VPSidebar :open="isSidebarOpen" @close="handleSidebarClick">
       <template #top>
-        <VPSponsors />
+        <!-- <VPSponsors /> -->
       </template>
       <template #bottom>
         <slot name="sidebar-bottom" />

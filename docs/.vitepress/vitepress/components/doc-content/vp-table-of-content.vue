@@ -3,11 +3,11 @@ import { computed, ref } from 'vue'
 import { useToc } from '../../composables/use-toc'
 import { useActiveSidebarLinks } from '../../composables/active-bar'
 
-import sponsorLocale from '../../../i18n/component/sponsor.json'
-import { useLang } from '../../composables/lang'
-import SponsorsButton from '../sponsors/sponsors-button.vue'
-import SponsorRightTextList from '../sponsors/right-richtext-list.vue'
-import SponsorRightLogoSmallList from '../sponsors/right-logo-small-list.vue'
+// import sponsorLocale from '../../../i18n/component/sponsor.json'
+// import { useLang } from '../../composables/lang'
+// import SponsorsButton from '../sponsors/sponsors-button.vue'
+// import SponsorRightTextList from '../sponsors/right-richtext-list.vue'
+// import SponsorRightLogoSmallList from '../sponsors/right-logo-small-list.vue'
 // import SponsorLarge from '../vp-sponsor-large.vue'
 
 const headers = useToc()
@@ -19,8 +19,8 @@ const manualLink = (hash: string) => {
   useActiveSidebarLinksResult && useActiveSidebarLinksResult.manualLink(hash)
 }
 
-const lang = useLang()
-const sponsor = computed(() => sponsorLocale[lang.value])
+// const lang = useLang()
+// const sponsor = computed(() => sponsorLocale[lang.value])
 </script>
 
 <template>
@@ -63,11 +63,11 @@ const sponsor = computed(() => sponsorLocale[lang.value])
         item-style="width: 180px; height: 55px;"
       /> -->
       <p class="text-14px font-300 color-$text-color-secondary">
-        {{ sponsor.sponsoredBy }}
+        <!-- {{ sponsor.sponsoredBy }} -->
       </p>
-      <sponsors-button class="sponsors-button mt-4 w-100%" />
-      <sponsor-right-logo-small-list />
-      <sponsor-right-text-list />
+      <!-- <sponsors-button class="sponsors-button mt-4 w-100%" /> -->
+      <!-- <sponsor-right-logo-small-list /> -->
+      <!-- <sponsor-right-text-list /> -->
     </nav>
   </aside>
 </template>

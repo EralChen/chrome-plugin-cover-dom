@@ -6,16 +6,16 @@ import type { Ref } from 'vue'
 
 type ManualLinkFn = (hash: string) => void
 
-export function useActiveSidebarLinks(
+export function useActiveSidebarLinks (
   container: Ref<HTMLElement>,
-  marker: Ref<HTMLElement>
+  marker: Ref<HTMLElement>,
 ): { manualLink: ManualLinkFn } | undefined {
   if (!isClient) return
 
   let scrollDom: HTMLElement
 
   const onScroll = throttleAndDebounce(setActiveLink, 150)
-  function setActiveLink() {
+  function setActiveLink () {
     const sidebarLinks = getSidebarLinks()
     const anchors = getAnchors(sidebarLinks)
     // Cancel the processing of the anchor point being forced to be the last one in the storefront
@@ -35,7 +35,7 @@ export function useActiveSidebarLinks(
         history.replaceState(
           null,
           document.title,
-          hash ? (hash as string) : ' '
+          hash ? (hash as string) : ' ',
         )
         activateLink(hash as string)
         return
@@ -45,15 +45,15 @@ export function useActiveSidebarLinks(
 
   let prevActiveLink: HTMLAnchorElement | null = null
 
-  function activateLink(hash: string) {
+  function activateLink (hash: string) {
     deactiveLink(prevActiveLink)
 
     const activeLink = (prevActiveLink =
       hash == null
         ? null
         : (container.value.querySelector(
-            `.toc-item a[href="${decodeURIComponent(hash)}"]`
-          ) as HTMLAnchorElement))
+          `.toc-item a[href="${decodeURIComponent(hash)}"]`,
+        ) as HTMLAnchorElement))
 
     if (activeLink) {
       activeLink.classList.add('active')
@@ -65,7 +65,7 @@ export function useActiveSidebarLinks(
     }
   }
 
-  function deactiveLink(link: HTMLElement | null) {
+  function deactiveLink (link: HTMLElement | null) {
     link && link.classList.remove('active')
   }
 
@@ -83,7 +83,7 @@ export function useActiveSidebarLinks(
     activateLink(location.hash)
   })
 
-  function manualLink(hash: string) {
+  function manualLink (hash: string) {
     const anchor: HTMLElement | null = document.querySelector(hash)
     if (!anchor) {
       return
@@ -97,24 +97,24 @@ export function useActiveSidebarLinks(
     manualLink,
   }
 }
-function getSidebarLinks() {
+function getSidebarLinks () {
   return Array.from(
-    document.querySelectorAll('.toc-content .toc-link')
+    document.querySelectorAll('.toc-content .toc-link'),
   ) as HTMLAnchorElement[]
 }
-function getAnchors(sidebarLinks: HTMLAnchorElement[]) {
+function getAnchors (sidebarLinks: HTMLAnchorElement[]) {
   return (
     Array.from(
-      document.querySelectorAll('.doc-content .header-anchor')
+      document.querySelectorAll('.doc-content .header-anchor'),
     ) as HTMLAnchorElement[]
   ).filter((anchor) =>
-    sidebarLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
+    sidebarLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash),
   )
 }
-function getPageOffset() {
+function getPageOffset () {
   return (document.querySelector('.navbar') as HTMLElement).offsetHeight
 }
-function getAnchorTop(anchor: HTMLAnchorElement) {
+function getAnchorTop (anchor: HTMLAnchorElement) {
   const pageOffset = getPageOffset()
   try {
     return anchor.parentElement!.offsetTop - pageOffset - 15
@@ -122,13 +122,13 @@ function getAnchorTop(anchor: HTMLAnchorElement) {
     return 0
   }
 }
-function isAnchorActive(
+function isAnchorActive (
   index: number,
   anchor: HTMLAnchorElement,
-  nextAnchor: HTMLAnchorElement
+  nextAnchor: HTMLAnchorElement,
 ) {
   const scrollTop = document.querySelector(
-    '.App .el-scrollbar__wrap'
+    '.App .el-scrollbar__wrap',
   )!.scrollTop
   if (index === 0 && scrollTop === 0) {
     return [true, null]
