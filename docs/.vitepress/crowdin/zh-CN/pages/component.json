@@ -3,10 +3,6 @@
     "text": "Basic 基础组件",
     "children": [
       {
-        "link": "/button",
-        "text": "Button 按钮"
-      },
-      {
         "link": "/duplex",
         "text": "Duplex 双层"
       }
