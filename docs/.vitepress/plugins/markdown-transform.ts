@@ -108,9 +108,11 @@ const transformComponentMarkdown = (
     .join(' • ')
 
   const sourceSection = `
+  <!--
 ## ${footerLocale[lang].source}
 
 ${linksText}
+-->
 `
 
   const contributorsSection = `

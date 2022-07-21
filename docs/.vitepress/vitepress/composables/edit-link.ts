@@ -6,7 +6,7 @@ import { defaultLang } from '../constant'
 import { createCrowdinUrl, createGitHubUrl } from '../utils'
 import editLinkLocale from '../../i18n/component/edit-link.json'
 
-export function useEditLink() {
+export function useEditLink () {
   const { page, theme, frontmatter } = useData()
   const lang = useLang()
   const editLink = useLocale(editLinkLocale)
@@ -38,7 +38,7 @@ export function useEditLink() {
         docsBranch,
         relativePath,
         '',
-        ''
+        '',
       )
     }
 

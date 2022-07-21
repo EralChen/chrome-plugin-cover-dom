@@ -10,7 +10,7 @@ const props = {
 
   withOverflow: {
     type: String as PropType<WithType>,
-    default: 'two',
+    default: 'both',
   },
 
   overflow: {

@@ -21,6 +21,10 @@ const alias: Alias[] = [
     find: '~/',
     replacement: `${path.resolve(__dirname, './.vitepress/vitepress')}/`,
   },
+  {
+    find: '_e/',
+    replacement: `${path.resolve(__dirname, './examples')}/`,
+  },
 ]
 
 export default defineConfig(async ({ mode }) => {

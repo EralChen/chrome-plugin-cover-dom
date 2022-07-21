@@ -5,159 +5,74 @@ lang: zh-CN
 
 # Duplex 双层
 
-常用的操作按钮。
+常用的双层盒子。
+
+## 需求场景
+
+<vp-script setup>
+import desired from '_e/duplex/desired.png'
+</vp-script>
+
+<el-image :src="desired" p="10"/>
+
+## 实现思路
+
+:::details calc
+要确定 `body` 高度，可以考虑使用 `calc(100% - #{headerHeight})`;
+
+在 `headerHeight` 不确定的情况下，则可能需要使用 js 计算 `headerHeight`.
+::: 
+
+:::info flex
+将 root 要素设为 `display: flex`; 
+
+只需要对 `body` 使用 `flex-grow: 1`;
+
+为了使 `body-inner` 约束在 body 内，配合使用 `overflow` 属性。
+::: 
+
+:::tip
+`Duplex`采用 `flex` 实现；
+:::
 
 ## 基础用法
 
-:::demo 使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。
+:::demo 使用 `withFlex` 来定义常用布局。
 
 duplex/basic
 
 :::
 
-## 禁用状态
+## 内容超出
 
-你可以使用 `disabled` 属性来定义按钮是否被禁用。
+:::demo 你可以使用 `overflow` 属性来定义 item `overflow`, 或是使用一个新的盒子（如`ElScrollbar`）来建立滚动逻辑。
 
-:::demo 使用 `disabled` 属性来控制按钮是否为禁用状态。 该属性接受一个 `Boolean` 类型的值。
-
-button/disabled
+duplex/scroll
 
 :::
 
-## 链接按钮
 
-:::warning
+## Duplex 属性
 
-`type="text"` 已被 **废弃**，将于版本 <VersionTag version="3.0.0" /> 时 **移除**，请考虑切换至新的 API。
+| 属性 | 说明 | 类型 |默认值|
+| --------------- | ----------------- | ------------|------------- |
+| withFlex | 应用 `flex` 属性的要素| WithType | 'two' |
+| withOverflow | 应用 `overflow` 属性的要素| WithType | 'both' |
+| flex | 预设的 `flex` 规则 | string | '1'|
+| overflow | 预设的 `overflow` 规则 | string | 'hidden'|
 
-新的 API `link` 于 <VersionTag version="2.2.1" /> 版本添加，同时可以使用 `type` API 设置链接按钮的主题样式。
 
+:::details TS
+```ts
+type WithType = 'one'|'two'|'both'|'none'
+```
 :::
 
-:::demo
+## Duplex 插槽
 
-button/link
+| 插槽名   | 参数  | 说明       |
+| ------- | -------- | -------- |
+| default | - | 第二层  |
+| one    | - | 第一层 |
+| two    | - | 第二层  |
 
-:::
-
-## 文字按钮
-
-:::tip
-
-文字按钮在现在有了全新的设计样式。 <el-tag round effect="plain" size="small">2.2.0</el-tag> 如果您想要使用老版样式的按钮，可以考虑使用 [Link](./link.md#basic) 组件。
-
-API也已更新，由于 `type` 属性会同时控制按钮的样式， 因此我们通过一个新的 API `text: boolean` 来控制文字按钮。
-
-:::
-
-没有边框和背景色的按钮。
-
-:::demo
-
-button/text
-
-:::
-
-## 图标按钮
-
-使用图标为按钮添加更多的含义。 你也可以单独使用图标不添加文字来节省显示区域占用。
-
-:::demo 使用 `icon` 属性来为按钮添加图标。 您可以在我们的 Icon 组件中找到所需图标。 通过向右方添加`<i>`标签来添加图标， 你也可以使用自定义图标。
-
-button/icon
-
-:::
-
-## 按钮组
-
-以按钮组的方式出现，常用于多项类似操作。
-
-:::demo 使用 `<el-button-group>` 对多个按钮分组。
-
-button/group
-
-:::
-
-## 加载状态按钮
-
-点击按钮来加载数据，并向用户反馈加载状态。
-
-通过设置 `loading` 属性为 `true` 来显示加载中状态。
-
-:::tip
-
-您可以使用 `loading` 插槽或 `loadingIcon`属性自定义您的loading图标
-
-ps: `loading` 插槽优先级高于`loadingIcon`属性
-
-:::
-
-:::demo
-
-button/loading
-
-:::
-
-## 调整尺寸
-
-除了默认的大小，按钮组件还提供了几种额外的尺寸可供选择，以便适配不同的场景。
-
-:::demo 使用 `size` 属性额外配置尺寸，可使用 `large`和`small`两种值。
-
-button/size
-
-:::
-
-## 自定义颜色 <VersionTag version="beta" />
-
-您可以自定义按钮颜色。
-
-我们将自动计算 hover 和 active 颜色。
-
-:::demo
-
-button/custom
-
-:::
-
-## Button 属性
-
-| 属性                                  | 说明                | 类型                 | 可选值                                                           | 默认值     |
-| ----------------------------------- | ----------------- | ------------------ | ------------------------------------------------------------- | ------- |
-| size                                | 尺寸                | string             | large / default /small                                        | —       |
-| type                                | 类型                | string             | primary / success / warning / danger / info / <del>text</del> | —       |
-| plain                               | 是否为朴素按钮           | boolean            | —                                                             | false   |
-| text<VersionTag version="2.2.0" />  | 是否为文字按钮           | boolean            | —                                                             | false   |
-| bg <VersionTag version="2.2.0" />   | 是否显示文字按钮背景颜色      | boolean            | —                                                             | false   |
-| link <VersionTag version="2.2.1" /> | 是否为链接按钮           | boolean            | —                                                             | false   |
-| round                               | 是否为圆角按钮           | boolean            | —                                                             | false   |
-| circle                              | 是否为圆形按钮           | boolean            | —                                                             | false   |
-| loading                             | 是否为加载中状态          | boolean            | —                                                             | false   |
-| loading-icon                        | 自定义加载中状态图标组件      | string / Component | —                                                             | Loading |
-| disabled                            | 按钮是否为禁用状态         | boolean            | —                                                             | false   |
-| icon                                | 图标组件              | string / Component | —                                                             | —       |
-| autofocus                           | 原生 `autofocus` 属性 | boolean            | —                                                             | false   |
-| native-type                         | 原生 type 属性        | string             | button / submit / reset                                       | button  |
-| auto-insert-space                   | 自动在两个中文字符之间插入空格   | boolean            |                                                               | —       |
-
-## Button 插槽
-
-| 插槽名     | 说明       |
-| ------- | -------- |
-| —       | 自定义默认内容  |
-| loading | 自定义加载中组件 |
-| icon    | 自定义图标组件  |
-
-## Button-Group 属性
-
-| 属性   | 说明             | 类型     | 可选值      | 默认值 |
-| ---- | -------------- | ------ | -------- | --- |
-| size | 用于控制该按钮组内按钮的大小 | string | 与按钮的大小相同 | —   |
-| type | 用于控制该按钮组内按钮的类型 | string | 与按钮的类型一致 | —   |
-
-## Button-Group 插槽
-
-| 插槽名 | 说明       | 子标签    |
-| --- | -------- | ------ |
-| -   | 自定义按钮组内容 | Button |

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import VPEditLink from './vp-edit-link.vue'
+// import VPEditLink from './vp-edit-link.vue'
 </script>
 
 <template>
   <footer class="page-footer">
     <div class="edit">
-      <VPEditLink />
+      <!-- <VPEditLink /> -->
     </div>
   </footer>
 </template>
