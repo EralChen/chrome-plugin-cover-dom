@@ -43,7 +43,7 @@ const homeLang = computed(() => homeLocale[lang.value])
 <style lang="scss">
 .home-page {
   .cards {
-    margin: 0 auto 110px;
+    margin: 50px auto 110px;
     max-width: 900px;
 
     .container {

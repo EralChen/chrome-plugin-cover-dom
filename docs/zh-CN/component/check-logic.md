@@ -31,27 +31,40 @@ import img from '_e/check-logic/check-logic.jpeg'
 check-logic/basic
 :::
 
-## Duplex 属性
+## CheckLogic 属性
 
 | 属性 | 说明 | 类型 |默认值|
 | --------------- | ----------------- | ------------|------------- |
-| withFlex | 应用 `flex` 属性的要素| WithType | 'two' |
-| withOverflow | 应用 `overflow` 属性的要素| WithType | 'both' |
-| flex | 预设的 `flex` 规则 | string | '1'|
-| overflow | 预设的 `overflow` 规则 | string | 'hidden'|
+| name* | 选择标识符 | [String, Number, Boolean] | - |
+| v-model | 当前项 状态 | boolean | - |
+| :clearable | 选择是否可以通过 `toggle` 事件清除 | boolean | true |
+| :eventType | 触发 `toggle` 的默认事件类型 | string | 'click'|
+| injectKey | 与 `CheckLogicProvider` providerKey 对应，决定归属 | string | - |
 
 
-:::details TS
-```ts
-type WithType = 'one'|'two'|'both'|'none'
-```
-:::
-
-## Duplex 插槽
+## CheckLogic Emits
 
 | 插槽名   | 参数  | 说明       |
 | ------- | -------- | -------- |
-| default | - | 第二层  |
-| one    | - | 第一层 |
-| two    | - | 第二层  |
+| active | - | 选择项激活  |
+| inactive | - | 选择项失活  |
+
+
+## CheckLogic 插槽
+
+| 插槽名   | 参数  | 说明       |
+| ------- | -------- | -------- |
+| default | &nbsp;isActive: boolean <br> toggle: Func | 选择项内容  |
+
+
+
+
+## CheckLogicProvider 属性
+
+| 属性 | 说明 | 类型 |默认值|
+| --------------- | ----------------- | ------------|------------- |
+| v-model | 选中的数据( `CheckLogic` 的 name 值) | any | - |
+| provideKey | 与 `CheckLogic` injectKey 对应, 在多个 `CheckLogicProvider` 嵌套中做区分 | string | - |
+
+
 
