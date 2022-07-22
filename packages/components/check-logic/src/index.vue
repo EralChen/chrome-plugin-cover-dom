@@ -20,7 +20,7 @@ export default defineComponent({
   emits,
   props,
   setup (props, { emit }) {
-    const pvm  = useCheckLogicProvider()
+    const pvm  = useCheckLogicProvider(props.injectKey)
     const collectionType = computed(() => {
       if (isPlainObject(pvm.props.modelValue)) {
         return CollectionType.object
@@ -113,6 +113,7 @@ export default defineComponent({
     })
 
     function toggle () {
+      if (isActive.value && !props.clearable) return
       isActive.value = !isActive.value
     }
 
@@ -137,3 +138,8 @@ export default defineComponent({
     ></slot>
   </div>
 </template>
+<style>
+.vk-check-logic{
+  cursor: pointer;
+}
+</style>

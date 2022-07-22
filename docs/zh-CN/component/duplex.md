@@ -60,6 +60,8 @@ duplex/scroll
 | :withOverflow | 应用 `overflow` 属性的要素| WithType | 'both' |
 | :flex | 预设的 `flex` 规则 | string | '1'|
 | :overflow | 预设的 `overflow` 规则 | string | 'hidden'|
+| :gap | Item 之间的距离 | string | - |
+| :deriction | 父盒子flex方向 | string | 'column' | 
 
 
 :::details TS

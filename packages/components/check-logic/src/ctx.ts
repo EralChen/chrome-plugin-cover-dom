@@ -17,6 +17,10 @@ export const props = {
     type: String,
     default: 'click',
   },
+  clearable: {
+    type: Boolean,
+    default: true,
+  },
 }
 
 export const emits = {

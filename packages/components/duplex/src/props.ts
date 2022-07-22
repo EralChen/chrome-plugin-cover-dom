@@ -22,5 +22,15 @@ const props = {
     type: String,
     default: '1',
   },
+
+  direction: {
+    type: String,
+    default: 'column',
+  },
+
+  gap: {
+    type: String,
+    required: false,
+  },
 }
 export default props

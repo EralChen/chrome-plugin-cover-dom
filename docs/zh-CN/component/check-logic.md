@@ -27,7 +27,7 @@ import img from '_e/check-logic/check-logic.jpeg'
 
 ## 基础用法
 
-:::demo
+:::demo 根据 `CheckLogicProvider` v-model 绑定的不同数据类型, 调整不同选择逻辑
 check-logic/basic
 :::
 

@@ -16,6 +16,7 @@ const container = ref()
 const useActiveSidebarLinksResult = useActiveSidebarLinks(container, marker)
 
 const manualLink = (hash: string) => {
+  console.log(hash)
   useActiveSidebarLinksResult && useActiveSidebarLinksResult.manualLink(hash)
 }
 

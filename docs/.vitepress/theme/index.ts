@@ -12,7 +12,6 @@ export default define<Theme>({
   enhanceApp: ({ app }) => {
     app.use(ElementPlus)
     app.use(VunkCore)
-
     globals.forEach(([name, Comp]) => {
       app.component(name, Comp)
     })

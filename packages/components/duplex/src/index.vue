@@ -10,6 +10,8 @@ export default defineComponent({
       return {
         '--vk-duplex-overflow': props.overflow,
         '--vk-duplex-flex': props.flex,
+        '--vk-duplex-direction': props.direction,
+        '--vk-duplex-gap': props.gap,
       } as StyleValue
     })
     
@@ -25,6 +27,7 @@ export default defineComponent({
       'with-flex': withFlex === 'both' || withFlex === 'one',
       'with-overflow': withOverflow === 'both' || withOverflow === 'one'
     }">
+
       <slot name="one"></slot>
     </div>
     <div class="vk-duplex-2"
@@ -41,8 +44,14 @@ export default defineComponent({
 <style>
 .vk-duplex{
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--vk-duplex-direction);
+  gap: var(--vk-duplex-gap);
 }
+.vk-duplex-line{
+  height: 2px;
+  background-color: red;
+}
+
 [class^="vk-duplex-"].with-flex {
   flex: var(--vk-duplex-flex);
 }
