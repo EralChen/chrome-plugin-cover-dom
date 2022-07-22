@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import glob from 'fast-glob'
-import { docRoot, docsDirName, workRoot as projRoot } from '@lib-env/path'
-import { REPO_BRANCH, REPO_PATH } from '@lib-env/build-constants'
+import { docRoot, workRoot as projRoot } from '@lib-env/path'
+import { DOCS_DIR_NAME, REPO_BRANCH, REPO_PATH } from '@lib-env/build-constants'
 import { getLang, languages } from '../utils/lang'
 import footerLocale from '../i18n/component/footer.json'
 
@@ -91,7 +91,7 @@ const transformComponentMarkdown = (
 ) => {
   const lang = getLang(id)
 
-  const docUrl = `${GITHUB_BLOB_URL}/${docsDirName}/en-US/component/${componentId}.md`
+  const docUrl = `${GITHUB_BLOB_URL}/${DOCS_DIR_NAME}/en-US/component/${componentId}.md`
   const componentUrl = `${GITHUB_TREE_URL}/packages/components/${componentId}`
 
   const componentPath = path.resolve(

@@ -21,6 +21,7 @@ importers:
       eslint-define-config: ^1.5.1
       eslint-plugin-vue: ^9.2.0
       gulp: ^4.0.2
+      mri: ^1.2.0
       sucrase: ^3.24.0
       tsx: ^3.8.0
       unbuild: ^0.7.4
@@ -45,6 +46,7 @@ importers:
       eslint-define-config: 1.5.1
       eslint-plugin-vue: 9.2.0_eslint@8.20.0
       gulp: 4.0.2
+      mri: 1.2.0
       sucrase: 3.24.0
       tsx: 3.8.0
       unbuild: 0.7.4

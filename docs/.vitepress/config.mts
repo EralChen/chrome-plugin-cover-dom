@@ -1,6 +1,6 @@
 import consola from 'consola'
-import { REPO_BRANCH, REPO_PATH } from '@lib-env/build-constants'
-import { docsDirName } from '@lib-env/path'
+import { REPO_BRANCH, REPO_PATH, DOCS_DIR_NAME } from '@lib-env/build-constants'
+
 import { languages } from './utils/lang'
 import { head } from './config/head'
 import { sidebars } from './config/sidebars'
@@ -54,7 +54,7 @@ export const config: UserConfig = {
     repo: REPO_PATH,
     docsBranch: REPO_BRANCH,
 
-    docsDir: docsDirName,
+    docsDir: DOCS_DIR_NAME,
 
     editLinks: true,
     editLinkText: 'Edit this page on GitHub',

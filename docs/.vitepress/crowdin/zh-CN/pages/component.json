@@ -5,6 +5,10 @@
       {
         "link": "/duplex",
         "text": "Duplex 双层"
+      },
+      {
+        "link": "/check-logic",
+        "text": "CheckLogic 选择逻辑"
       }
     ]
   },

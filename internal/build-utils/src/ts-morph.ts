@@ -1,6 +1,6 @@
 import { Project, SourceFile } from 'ts-morph'
 import path from 'path'
-import { distTypesDir, pkgEntryFile, workRoot } from '@lib-env/path'
+import { distTypesDir, pkgsEntryFile, workRoot } from '@lib-env/path'
 import { LIB_ALIAS, LIB_NAME } from '@lib-env/build-constants'
 import glob from 'fast-glob'
 import fs from 'fs/promises'
@@ -46,7 +46,7 @@ export async function genTypes (opts: {
   project.addSourceFilesAtPaths(path.resolve(workRoot, 'typings', './**/*{.d.ts,.ts}'))
 
   /* [TODO]固定.d.ts文件输入路径的临时解决方案，令outDir中目录结构于packages相同 */
-  project.addSourceFilesAtPaths(pkgEntryFile)
+  project.addSourceFilesAtPaths(pkgsEntryFile)
 
   const sourceFiles: SourceFile[] = []
   await Promise.all([
