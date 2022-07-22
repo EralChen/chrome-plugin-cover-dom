@@ -21,7 +21,7 @@ export const leftCustomImgThanks = [
     name: 'Element Plus',
     name_cn: 'Element Plus',
     img: '/images/thanks/element-plus-logo-small.svg',
-    url: 'https://js.design?source=element-plus',
+    url: 'https://element-plus.org/en-US/',
     slogan: '面向设计师和开发者的组件库',
     slogan_cn: '面向设计师和开发者的组件库',
     // banner_img: '/images/js-design-banner.jpg',

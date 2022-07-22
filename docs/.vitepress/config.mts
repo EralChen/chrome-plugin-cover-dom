@@ -46,8 +46,8 @@ languages.forEach((lang) => {
 })
 
 export const config: UserConfig = {
-  title: 'Element Plus',
-  description: 'a Vue 3 based component library for designers and developers',
+  title: '@vunk/core',
+  description: '源于实战，面向开发者的 vue3 组件库',
   lastUpdated: true,
   head,
   themeConfig: {
