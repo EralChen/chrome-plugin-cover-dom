@@ -40,7 +40,7 @@ module.exports = defineConfig({
     'key-spacing': ['error', { 'afterColon': true }],
     '@typescript-eslint/no-var-requires': 'off',
     // for ts
-    
+    '@typescript-eslint/no-explicit-any': 'off',
     // for vue
     'vue/multi-word-component-names': 'off',
     'vue/prefer-import-from-vue': 'off',

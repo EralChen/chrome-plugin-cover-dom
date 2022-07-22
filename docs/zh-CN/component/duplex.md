@@ -56,10 +56,10 @@ duplex/scroll
 
 | 属性 | 说明 | 类型 |默认值|
 | --------------- | ----------------- | ------------|------------- |
-| withFlex | 应用 `flex` 属性的要素| WithType | 'two' |
-| withOverflow | 应用 `overflow` 属性的要素| WithType | 'both' |
-| flex | 预设的 `flex` 规则 | string | '1'|
-| overflow | 预设的 `overflow` 规则 | string | 'hidden'|
+| :withFlex | 应用 `flex` 属性的要素| WithType | 'two' |
+| :withOverflow | 应用 `overflow` 属性的要素| WithType | 'both' |
+| :flex | 预设的 `flex` 规则 | string | '1'|
+| :overflow | 预设的 `overflow` 规则 | string | 'hidden'|
 
 
 :::details TS

@@ -38,6 +38,7 @@ export default defineComponent({
     const pCtx = inject<any>(_VkTabGroupSymbol.contextKey)
     if (!pProps) throw new Error('VkTabItem must be in VkTabGroup')
     if (!pCtx) throw new Error('VkTabItem must be in VkTabGroup')
+    
     const collectionType = computed(() => {
       if (isPlainObject(pProps.modelValue)) {
         return CollectionType.object
@@ -114,7 +115,6 @@ export default defineComponent({
     }, {immediate: true})
 
     /* 如果改变了 item 绑定的值，则父组件的绑定需要设置 当前值  end*/
-    
     const handleClick = () => {
       if (isActive.value && !props.clearable) return
       togglePModelValue(isActive.value) // 转换active

@@ -1,11 +1,13 @@
 <script lang="ts">
 import { props, emits } from './ctx'
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance, provide } from 'vue'
 export default defineComponent({
   name: 'VkCheckLogicProvider',
   emits,
   props,
-  setup (props, { emit }) {
+  setup (props) {
+    const vm = getCurrentInstance()
+    provide(props.provideKey, vm)
     return {}
   },
 })
