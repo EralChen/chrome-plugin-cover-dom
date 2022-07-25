@@ -87,12 +87,12 @@ export default {
     <h4>for vue</h4>
     <li>
       <span>MaybeRef: </span>
-      <span>可能是个Ref</span>
+      <span>可能是个 Ref </span>
     </li>
 
     <li>
       <span>VueComponentPropsType:</span>
-      <span>返回vue组件的props类型</span>
+      <span>返回 vue 组件的 props 类型</span>
     </li>
 
   </ul>
