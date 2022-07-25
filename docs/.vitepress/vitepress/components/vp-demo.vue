@@ -58,7 +58,7 @@ const demoSourceUrl = useSourceCode(toRef(props, 'path'))
 const formatPathDemos = computed(() => {
   const demos = {}
 
-  Object.keys(props.demos).forEach((key) => {
+  Object.keys(props.demos || {}).forEach((key) => {
     demos[key.replace('../../examples/', '').replace('.vue', '')] =
       props.demos[key].default
   })

@@ -16,8 +16,8 @@ export function MarkdownTransform (): Plugin {
     enforce: 'pre',
     async transform (code, id) {
       if (!id.endsWith('.md')) return
-
       const componentId = path.basename(id, '.md')
+      
       const append: Append = {
         headers: [],
         footers: [],

@@ -24,32 +24,6 @@
     "text": "进阶",
     "children": [
       {
-        "text": "国际化",
-        "link": "/guide/i18n"
-      },
-      {
-        "text": "从 Element UI 升级",
-        "link": "/guide/migration"
-      },
-      {
-        "text": "主题",
-        "link": "/guide/theming"
-      },
-      {
-        "text": "暗黑模式",
-        "link": "/guide/dark-mode",
-        "promotion": "2.2.0"
-      },
-      {
-        "text": "自定义命名空间",
-        "link": "/guide/namespace",
-        "promotion": "2.2.0"
-      },
-      {
-        "text": "内置过渡动画",
-        "link": "/guide/transitions"
-      },
-      {
         "text": "更新日志",
         "link": "/guide/changelog"
       }

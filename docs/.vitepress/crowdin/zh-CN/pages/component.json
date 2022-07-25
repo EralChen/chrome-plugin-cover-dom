@@ -17,5 +17,16 @@
         "text": "CheckLogic 选择逻辑"
       }
     ]
+  },
+
+  "shared": {
+    "text": "Shared 共享",
+    "children": [
+      {
+        "link": "/shared-types",
+        "text": "Types 类型"
+      }
+    ]
   }
+   
 }
