@@ -4,5 +4,11 @@
   "module": "index.ts",
   "scripts": {
     "build": "gulp -f gulpfile.ts"
+  },
+  "dependencies": {
+    "qs": "^6.11.0"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.7"
   }
 }
