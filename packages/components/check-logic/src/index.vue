@@ -2,7 +2,7 @@
 import { props, emits } from './ctx'
 import { computed, defineComponent, watch } from 'vue'
 import { useCheckLogicProvider } from '@vunk-core/components/check-logic-provider'
-import { isPlainObject } from '@vunk-core/shared'
+import { isPlainObject } from '@vunk-core/shared/utils-object'
 
 enum CollectionType {
   array,

@@ -6,6 +6,7 @@ import { highlight } from '../utils/highlight'
 import type Token from 'markdown-it/lib/token'
 import type Renderer from 'markdown-it/lib/renderer'
 import { docRoot } from '@lib-env/path'
+import { fixPath } from '@lib-env/build-utils'
 
 const localMd = MarkdownIt()
 
@@ -36,10 +37,12 @@ export const mdPlugin = (md: MarkdownIt) => {
         const sourceFile = sourceFileToken.children?.[0].content ?? ''
 
         if (sourceFileToken.type === 'inline') {
-          source = fs.readFileSync(
-            path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
-            'utf-8',
-          )
+          source = fixPath(
+            fs.readFileSync(
+              path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
+              'utf-8',
+            ),
+          ) 
         }
 
         // 在 container_demo_close 之前， 向下找到 blockquote_open 
@@ -66,9 +69,11 @@ export const mdPlugin = (md: MarkdownIt) => {
               item = item.trim()
               tabs.push(item)
               tabsSource[item] = highlight(
-                fs.readFileSync(
-                  path.resolve(docRoot, 'examples', `${item}.vue`),
-                  'utf-8',
+                fixPath(
+                  fs.readFileSync(
+                    path.resolve(docRoot, 'examples', `${item}.vue`),
+                    'utf-8',
+                  ),
                 ),
                 'vue',
               )
