@@ -12,12 +12,12 @@ const props = defineProps({
 })
 
 const active = ref(props.data[0].path)
-console.log(props.data)
+
 </script>
 
 <template>
 <div class="example-source-wrapper">
-  <ElTabs  v-model="active">
+  <ElTabs  v-model="active" type="border-card">
     <ElTabPane v-for="item of data" :key="item.path" 
     :name="item.path" 
     :label="item.path">
