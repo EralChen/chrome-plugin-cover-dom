@@ -41,6 +41,10 @@ import desired from '_e/duplex/desired.png'
 
 duplex/basic
 
+>>>tabs
+[duplex/scroll]
+>>>
+
 :::
 
 ## 内容超出

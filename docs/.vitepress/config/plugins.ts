@@ -41,13 +41,61 @@ export const mdPlugin = (md: MarkdownIt) => {
             'utf-8',
           )
         }
-        if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
 
-        return `<Demo :demos="demos" source="${encodeURIComponent(
+        // 在 container_demo_close 之前， 向下找到 blockquote_open 
+        let tabsTokenIndex = idx + 2
+        while (
+          !(tokens[tabsTokenIndex].type === 'blockquote_open'
+            || tokens[tabsTokenIndex].type === 'container_demo_close')
+        ) {
+          tabsTokenIndex++
+        }
+
+        let tabsToken = tokens[tabsTokenIndex]
+        const tabs: string[] = []
+        const tabsSource: Record<string, string> = {}
+        if (tabsToken?.type === 'blockquote_open' && tabsToken.nesting === 1) {
+          tabsToken = tokens[tabsTokenIndex + 4]
+
+          if (tabsToken.type === 'inline') {
+            const tabsRE = /^tabs\s*\[(.+)\]/
+            const m = tabsToken.content.match(tabsRE)
+            const content = m && m.length > 1 ? m[1] : ''
+
+            content && content.split(',').forEach(item => {
+              item = item.trim()
+              tabs.push(item)
+              tabsSource[item] = highlight(
+                fs.readFileSync(
+                  path.resolve(docRoot, 'examples', `${item}.vue`),
+                  'utf-8',
+                ),
+                'vue',
+              )
+            })
+
+          }
+
+        }
+
+      
+        if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
+        return `<Demo 
+        :demos="demos" 
+          source="${encodeURIComponent(
           highlight(source, 'vue'),
-        )}" path="${sourceFile}" raw-source="${encodeURIComponent(
+        )}" 
+          path="${sourceFile}" 
+          raw-source="${encodeURIComponent(
           source,
-        )}" description="${encodeURIComponent(localMd.render(description))}">`
+        )}"
+        rawTabsSource="${encodeURIComponent(
+          JSON.stringify(tabsSource),
+        )}"
+          :tabs='${JSON.stringify(tabs)}'
+          description="${encodeURIComponent(localMd.render(description))}"
+        >`
+
       } else {
         return '</Demo>'
       }

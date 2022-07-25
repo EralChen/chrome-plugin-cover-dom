@@ -17,6 +17,8 @@ const props = defineProps<{
   path: string
   rawSource: string
   description?: string
+  tabs: string[]
+  rawTabsSource: string
 }>()
 
 const vm = getCurrentInstance()!
@@ -25,6 +27,29 @@ const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
   read: false,
 })
+
+/* tabs  */
+const tabsSource = computed(() => {
+  const jsonStr = decodeURIComponent(props.rawTabsSource)
+  return JSON.parse(jsonStr)
+})
+
+const tabsData = computed(() => {
+  return [
+    {
+      path: props.path,
+      source: decodeURIComponent(props.source),
+    },
+    ...props.tabs.map(item => {
+      return {
+        path: item,
+        source: tabsSource.value[item],
+      }
+    }),
+  ]
+})
+/* tabs end */
+
 
 const [sourceVisible, toggleSourceVisible] = useToggle()
 const lang = useLang()
@@ -108,7 +133,9 @@ const copyCode = async () => {
       </div>
 
       <ElCollapseTransition>
-        <SourceCode v-show="sourceVisible" :source="source" />
+   
+        <VpTabsSourceCode v-if="tabsData.length > 1" v-show="sourceVisible" :data="tabsData" />
+        <SourceCode v-else v-show="sourceVisible" :source="source" />
       </ElCollapseTransition>
 
       <Transition name="el-fade-in-linear">
