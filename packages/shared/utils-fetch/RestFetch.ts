@@ -1,19 +1,20 @@
 
 import { stringify } from 'qs'
-import type { RestFetchRequestOptions } from '../types/fetch'
+import type { RestFetchRequestOptions } from '@vunk-core/shared/types'
 
 interface ConstructorOptions {
   baseURL: string;
   setRequestInit?: (config: RequestInit) => RequestInit;
 }
-class RestFetch {
+export class RestFetch {
   baseURL: string
   setRequestInit: ConstructorOptions['setRequestInit']
-  #caches: Record<string, Promise<Response>>
+  protected caches: Record<string, Promise<Response>>
   constructor (options: ConstructorOptions) {
     this.baseURL = options.baseURL
     this.setRequestInit = options.setRequestInit
-    this.#caches = {}
+    // this.caches = {}
+    this.caches = {}
   }
 
   request (options: RestFetchRequestOptions, ...args:any[]): Promise<any>
@@ -21,22 +22,22 @@ class RestFetch {
   request (options: RestFetchRequestOptions, requestInit: RequestInit) {
     let readyPromise: Promise<Response>
     if (options.cache?.id) { // 如果提供缓存id 则从缓存获取promise
-      if (!this.#caches[options.cache.id] || options.cache.forceUpdate) { // 如果没有缓存先赋值, 或者需要强制更新缓存
-        this.#caches[options.cache.id] = this.#initFetch(options, requestInit) 
+      if (!this.caches[options.cache.id] || options.cache.forceUpdate) { // 如果没有缓存先赋值, 或者需要强制更新缓存
+        this.caches[options.cache.id] = this.initFetch(options, requestInit) 
       }
-      readyPromise = this.#caches[options.cache.id]
+      readyPromise = this.caches[options.cache.id]
       // https://github.com/whatwg/fetch/issues/196
       // res.json() 会消耗流数据 需要clone以便重用
         .then(res => res.clone())
     } else {
-      readyPromise = this.#initFetch(options, requestInit)
+      readyPromise = this.initFetch(options, requestInit)
     }
     return readyPromise.then(res =>{
       return res.json()
     })
   }
 
-  #initFetch (options: RestFetchRequestOptions, init?: RequestInit): Promise<Response> {
+  private initFetch (options: RestFetchRequestOptions, init?: RequestInit): Promise<Response> {
     const headers = new Headers()
     // 初始化init参数
     let config: RequestInit = {
@@ -86,9 +87,3 @@ class RestFetch {
   }
 
 }
-
-export {
-  RestFetch,
-}
-
-export default RestFetch
