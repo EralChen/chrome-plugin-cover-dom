@@ -35,6 +35,7 @@
 		"docs:build": "pnpm run -C docs build",
 
 		"cc": "gulp -f scripts/create/component/index.ts",
+		"ccd": "gulp -f scripts/create/component-docs/index.ts",
 		"run:test": "gulp -f scripts/test.ts"
 	}
 }

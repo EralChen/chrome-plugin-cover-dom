@@ -8,7 +8,6 @@
       }
     ]
   },
-
   "logic": {
     "text": "Logic 逻辑组件",
     "children": [
@@ -18,7 +17,6 @@
       }
     ]
   },
-
   "shared": {
     "text": "Shared 共享",
     "children": [
@@ -29,8 +27,11 @@
       {
         "link": "/shared-utils-object",
         "text": "UtilsObject"
+      },
+      {
+        "link": "/shared-utils-fetch",
+        "text": "UtilsFetch"
       }
     ]
   }
-   
 }
