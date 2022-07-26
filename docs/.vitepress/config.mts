@@ -47,7 +47,7 @@ languages.forEach((lang) => {
 
 export const config: UserConfig = {
   title: '@vunk/core',
-  description: '源于实战，面向开发者的 vue3 组件库',
+  description: 'From dev. To dev',
   lastUpdated: true,
   head,
   themeConfig: {
