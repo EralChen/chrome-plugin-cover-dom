@@ -1,8 +1,8 @@
 <script lang="ts">
 import { props, emits } from './ctx'
 import { computed, defineComponent, watch } from 'vue'
-import { useCheckLogicProvider } from '@vunk-core/components/check-logic-provider'
-import { isPlainObject } from '@vunk-core/shared/utils-object'
+import { useCheckLogicProvider } from '@vunk-skzz/components/check-logic-provider'
+import { isPlainObject } from '@vunk-skzz/shared/utils-object'
 
 enum CollectionType {
   array,

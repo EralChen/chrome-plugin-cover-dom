@@ -13,9 +13,10 @@ importers:
       '@types/gulp': ^4.0.9
       '@types/node': ^18.0.4
       '@vueuse/core': ^8.7.5
-      '@vunk-core/components': workspace:*
-      '@vunk-core/shared': workspace:*
-      '@vunk/core': workspace:*
+      '@vunk-skzz/components': workspace:*
+      '@vunk-skzz/shared': workspace:*
+      '@vunk/core': 0.0.0-alpha.2
+      '@vunk/skzz': workspace:*
       consola: ^2.15.3
       eslint: ^8.19.0
       eslint-define-config: ^1.5.1
@@ -30,9 +31,10 @@ importers:
     dependencies:
       '@element-plus/utils': link:packages/element-utils
       '@vueuse/core': 8.9.4_vue@3.2.37
-      '@vunk-core/components': link:packages/components
-      '@vunk-core/shared': link:packages/shared
-      '@vunk/core': link:packages/entry
+      '@vunk-skzz/components': link:packages/components
+      '@vunk-skzz/shared': link:packages/shared
+      '@vunk/core': 0.0.0-alpha.2
+      '@vunk/skzz': link:packages/entry
     devDependencies:
       '@lib-env/build-constants': link:internal/build-constants
       '@lib-env/build-utils': link:internal/build-utils
@@ -64,7 +66,7 @@ importers:
       '@vitejs/plugin-vue-jsx': ^1.3.10
       '@vue/shared': ^3.2.37
       '@vueuse/core': ^8.7.5
-      '@vunk/core': workspace:*
+      '@vunk/skzz': workspace:*
       axios: ^0.27.2
       chalk: ^4.1.2
       clipboard-copy: ^4.0.1
@@ -96,10 +98,10 @@ importers:
       '@element-plus/icons-vue': 2.0.6_vue@3.2.37
       '@vue/shared': 3.2.37
       '@vueuse/core': 8.9.4_vue@3.2.37
-      '@vunk/core': link:../packages/entry
+      '@vunk/skzz': link:../packages/entry
       axios: 0.27.2
       clipboard-copy: 4.0.1
-      element-plus: 2.2.9_vue@3.2.37
+      element-plus: 2.2.10_vue@3.2.37
       markdown-it: 13.0.1
       normalize.css: 8.0.1
       nprogress: 0.2.0
@@ -2694,6 +2696,10 @@ packages:
       vue-demi: 0.13.5_vue@3.2.37
     dev: false
 
+  /@vunk/core/0.0.0-alpha.2:
+    resolution: {integrity: sha512-k5/LPUHrbDHhGU+db0Ak7GeP8V9Rn8dFlE3/Yjfy+V4klH9je0MZ9i/Yx4y97xnDnLC1uNmS2CE7YomZ5j5JKw==}
+    dev: false
+
   /acorn-jsx/5.3.2_acorn@8.7.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -3734,8 +3740,8 @@ packages:
     resolution: {integrity: sha512-8nCXyIQY9An88NXAp+PuPy5h3/w5ZY7Iu2lag65Q0XREprcat5F8gKhoHsBUnQcFuCRnmevpR8yEBYRU3d2HDw==}
     dev: true
 
-  /element-plus/2.2.9_vue@3.2.37:
-    resolution: {integrity: sha512-jYbL0JkCdv95rkT6trZJjCAizLPySa0qcd2cgq+57SKQnCZAcNDDq4GbTuFRnNavdoeCJnuM3HIficTIUpsMOQ==}
+  /element-plus/2.2.10_vue@3.2.37:
+    resolution: {integrity: sha512-hJ+LlbRN3POu4Idl1LXB+SHSWdi+wwmdsoDXdQT2ynGuwzZsMYiusOooYXyEsPlrizeLibdnNGNDx4TIjXQvUg==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

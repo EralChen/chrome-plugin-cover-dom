@@ -1,6 +1,6 @@
 
 import { stringify } from 'qs'
-import type { RestFetchRequestOptions } from '@vunk-core/shared/types'
+import type { RestFetchRequestOptions } from '@vunk-skzz/shared/types'
 
 interface ConstructorOptions {
   baseURL: string;

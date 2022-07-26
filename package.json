@@ -22,9 +22,10 @@
 	"dependencies": {
 		"@element-plus/utils": "workspace:*",
 		"@vueuse/core": "^8.7.5",
-		"@vunk-core/components": "workspace:*",
-		"@vunk-core/shared": "workspace:*",
-		"@vunk/core": "workspace:*"
+		"@vunk-skzz/components": "workspace:*",
+		"@vunk-skzz/shared": "workspace:*",
+		"@vunk/core": "0.0.0-alpha.2",
+		"@vunk/skzz": "workspace:*"
 	},
 	"scripts": {
 		"dev": "pnpm run docs:dev",
@@ -33,9 +34,7 @@
 		"postinstall": "pnpm stub",
 		"docs:dev": "pnpm run -C docs dev",
 		"docs:build": "pnpm run -C docs build",
-		
 		"publish": "gulp -f scripts/publish.ts",
-
 		"cc": "gulp -f scripts/create/component/index.ts",
 		"ccd": "gulp -f scripts/create/component-docs/index.ts",
 		"run:test": "gulp -f scripts/test.ts"

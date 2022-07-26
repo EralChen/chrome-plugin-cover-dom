@@ -4,7 +4,7 @@ import {
   isNotEmptyObject,
   isPlainObject,
   isObject,
-} from '@vunk-core/shared/utils-object'
+} from '@vunk-skzz/shared/utils-object'
 
 export default {
   setup () {

@@ -1,4 +1,4 @@
-import { RestFetch } from '@vunk-core/shared/utils-fetch/RestFetch'
+import { RestFetch } from '@vunk-skzz/shared/utils-fetch/RestFetch'
 export {
   RestFetch,
 }

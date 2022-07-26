@@ -1,5 +1,5 @@
 import type { RestFetchRequest } from '@vunk/core'
-import { RestFetch } from '@vunk-core/shared/utils-fetch'
+import { RestFetch } from '@vunk-skzz/shared/utils-fetch'
 
 const restFetch  = new RestFetch({
   baseURL: '/data',
