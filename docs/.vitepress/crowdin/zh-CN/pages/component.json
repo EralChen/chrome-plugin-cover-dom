@@ -29,10 +29,6 @@
         "text": "UtilsObject"
       },
       {
-        "link": "/shared-utils-fetch",
-        "text": "UtilsFetch"
-      },
-      {
         "link": "/shared-utils-fetch-rest-fetch",
         "text": "UtilsFetch RestFetch"
       }
