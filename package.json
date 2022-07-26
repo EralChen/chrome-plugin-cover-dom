@@ -37,6 +37,7 @@
 		"publish": "gulp -f scripts/publish.ts",
 		"cc": "gulp -f scripts/create/component/index.ts",
 		"ccd": "gulp -f scripts/create/component-docs/index.ts",
-		"run:test": "gulp -f scripts/test.ts"
+		"run:test": "gulp -f scripts/test.ts",
+		"rm:nm": "gulp -f scripts/rm-nm.ts"
 	}
 }

@@ -1,33 +1,16 @@
 {
   "basic": {
-    "text": "Basic 基础组件",
+    "text": "basic 基础组件",
     "children": [
       {
-        "link": "/duplex",
-        "text": "Duplex 双层"
-      }
-    ]
-  },
-  "logic": {
-    "text": "Logic 逻辑组件",
-    "children": [
-      {
-        "link": "/check-logic",
-        "text": "CheckLogic 选择逻辑"
+        "link": "/hello",
+        "text": "hello 你好"
       }
     ]
   },
   "shared": {
     "text": "Shared 共享",
     "children": [
-      {
-        "link": "/shared-types",
-        "text": "Types 类型"
-      },
-      {
-        "link": "/shared-utils-object",
-        "text": "UtilsObject"
-      },
       {
         "link": "/shared-utils-fetch-rest-fetch",
         "text": "UtilsFetch RestFetch"
