@@ -1,6 +1,6 @@
 
 import { stringify } from 'qs'
-import { RestFetchRequestOptions } from '../types/fetch'
+import type { RestFetchRequestOptions } from '../types/fetch'
 
 interface ConstructorOptions {
   baseURL: string;
