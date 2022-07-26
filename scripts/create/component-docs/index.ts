@@ -63,7 +63,7 @@ export default series(
     })
 
     await fsp.writeFile(
-      path.resolve(theExamplesPath, `basic`),
+      path.resolve(theExamplesPath, `basic.vue`),
       createVue(),
       {
         encoding: 'utf-8',
