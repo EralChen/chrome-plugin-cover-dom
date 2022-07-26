@@ -1,11 +1,11 @@
 --- 
-title: UtilsFetch 
+title: UtilsFetch RestFetch
 lang: zh-CN
 ---
 
-# UtilsFetch
+# UtilsFetch RestFetch
 
-UtilsFetch
+UtilsFetch RestFetch
 
 ## 需求场景
 
@@ -17,10 +17,10 @@ UtilsFetch
 ## 基础用法
 
 :::demo 
-shared-utils-fetch/basic
+shared-utils-fetch-rest-fetch/basic
 >>>tabs
-[shared-utils-fetch/api, shared-utils-fetch/request]
+[shared-utils-fetch-rest-fetch/api, shared-utils-fetch-rest-fetch/request]
 >>>
 :::
 
-## UtilsFetch 其他
+## UtilsFetch RestFetch 其他
