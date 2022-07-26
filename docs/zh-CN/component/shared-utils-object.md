@@ -8,10 +8,8 @@ lang: zh-CN
 常用 object 相关 utils .
 
 
-## 基础用法
+## For Judgment
 
 :::demo 
 shared-utils-object/basic
 :::
-
-## UtilsObject 其他

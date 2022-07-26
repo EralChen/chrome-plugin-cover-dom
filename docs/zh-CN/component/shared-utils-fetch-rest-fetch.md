@@ -23,4 +23,34 @@ shared-utils-fetch-rest-fetch/basic
 >>>
 :::
 
-## UtilsFetch RestFetch 其他
+## RestFetch 类型
+
+```ts
+// 构造函数参数
+interface ConstructorOptions {
+  baseURL: string;
+  setRequestInit?: (config: RequestInit) => RequestInit;
+}
+
+// request 方法
+export interface RestFetchRequest {
+  (options: RestFetchRequestOptions, requestInit?: RequestInit): Promise<any>
+}
+
+// request 方法 options 参数
+export interface RestFetchRequestOptions {
+  url: string;
+  baseURL?: string;
+  method: 'POST' | 'GET' | 'PUT' | 'DELETE';
+  data?: Record<string, any>; 
+  params?: Record<string, any>;
+  contentType?: ContentType;
+  cache?: {
+    id: string, // 指定id，响应流将 以 key-res 缓存。 匹配到相同的 id ，则响应将从缓存中返回
+    forceUpdate?: boolean, // 是否强制更新缓存
+  }
+}
+
+```
+
+

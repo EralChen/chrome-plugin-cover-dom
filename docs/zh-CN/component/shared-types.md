@@ -17,6 +17,11 @@ shared-types/basic
 
 ## For UtilsFetch
 
+[RestFetch 类型](./shared-utils-fetch-rest-fetch.md#restfetch-类型) 
+
++ RestFetchRequest： request 方法
++ RestFetchRequestOptions: request 方法第一个参数options
+
 ```ts
 import type { RestFetchRequest, RestFetchRequestOptions } from '@vunk/core'
 import { RestFetch } from '@vunk/core/shared/utils-fetch'
@@ -29,7 +34,6 @@ export const request = <T>(...args: Parameters<RestFetchRequest>) => {
   return restFetch.request(...args) as Promise<T>
 }
 
-// RestFetchRequest： request 函数接口
-// RestFetchRequestOptions: request 函数第一个参数
-
 ```
+
+

@@ -10,4 +10,5 @@ export default series([
     consola.info(workRoot)
 
   }),
+  
 ])
