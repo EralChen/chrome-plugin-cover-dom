@@ -14,7 +14,7 @@ export default {
       isEmptyObject(a),  // true
       isNotEmptyObject(a), // false
       isObject(a), // true
-      isPlainObject(a), // false
+      isPlainObject(a), // true
     )
   
     const b = []

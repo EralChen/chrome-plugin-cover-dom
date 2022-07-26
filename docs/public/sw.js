@@ -4,9 +4,9 @@ self.addEventListener('activate', (e) => {
       return Promise.all(
         t.map((n) => {
           return caches.delete(n)
-        })
+        }),
       )
-    })
+    }),
   )
 })
 self.skipWaiting()

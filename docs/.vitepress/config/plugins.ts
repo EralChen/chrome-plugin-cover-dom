@@ -22,6 +22,22 @@ interface ContainerOpts {
   ): string
 }
 
+const genSource = (filename: string, exPath = path.resolve(docRoot, 'examples')) => {
+  const suffix = [ 'vue', 'ts' ]
+  const files = suffix.map(sfx => path.resolve(exPath, `${filename}.${sfx}`))
+  const fileIndex = files.findIndex(item => fs.existsSync(item))
+  if (fileIndex === -1) return ''
+  return highlight(
+    fixPath(
+      fs.readFileSync(
+        path.resolve(docRoot, 'examples', `${files[fileIndex]}`),
+        'utf-8',
+      ),
+    ),
+    suffix[fileIndex],
+  )
+}
+
 export const mdPlugin = (md: MarkdownIt) => {
   md.use(mdContainer, 'demo', {
     validate (params) {
@@ -47,19 +63,16 @@ export const mdPlugin = (md: MarkdownIt) => {
 
         // 在 container_demo_close 之前， 向下找到 blockquote_open 
         let tabsTokenIndex = idx + 2
-        while (
-          !(tokens[tabsTokenIndex].type === 'blockquote_open'
-            || tokens[tabsTokenIndex].type === 'container_demo_close')
-        ) {
+        while (!['blockquote_open', 'container_demo_close'].includes(tokens[tabsTokenIndex].type)) {
           tabsTokenIndex++
         }
-
         let tabsToken = tokens[tabsTokenIndex]
+
         const tabs: string[] = []
         const tabsSource: Record<string, string> = {}
         if (tabsToken?.type === 'blockquote_open' && tabsToken.nesting === 1) {
           tabsToken = tokens[tabsTokenIndex + 4]
-
+          
           if (tabsToken.type === 'inline') {
             const tabsRE = /^tabs\s*\[(.+)\]/
             const m = tabsToken.content.match(tabsRE)
@@ -68,15 +81,7 @@ export const mdPlugin = (md: MarkdownIt) => {
             content && content.split(',').forEach(item => {
               item = item.trim()
               tabs.push(item)
-              tabsSource[item] = highlight(
-                fixPath(
-                  fs.readFileSync(
-                    path.resolve(docRoot, 'examples', `${item}.vue`),
-                    'utf-8',
-                  ),
-                ),
-                'vue',
-              )
+              tabsSource[item] = genSource(item)
             })
 
           }
@@ -94,13 +99,12 @@ export const mdPlugin = (md: MarkdownIt) => {
           raw-source="${encodeURIComponent(
           source,
         )}"
-        rawTabsSource="${encodeURIComponent(
+          rawTabsSource="${encodeURIComponent(
           JSON.stringify(tabsSource),
         )}"
           :tabs='${JSON.stringify(tabs)}'
           description="${encodeURIComponent(localMd.render(description))}"
         >`
-
       } else {
         return '</Demo>'
       }

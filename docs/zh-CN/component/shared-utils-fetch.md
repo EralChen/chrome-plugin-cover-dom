@@ -12,6 +12,9 @@ UtilsFetch
 
 :::demo 
 shared-utils-fetch/basic
+>>>tabs
+[shared-utils-fetch/api, shared-utils-fetch/request]
+>>>
 :::
 
 ## UtilsFetch 其他

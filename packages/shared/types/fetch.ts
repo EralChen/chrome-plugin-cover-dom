@@ -15,6 +15,6 @@ export interface RestFetchRequestOptions {
 }
 
 export interface RestFetchRequest {
-  (options: RestFetchRequestOptions, requestInit: RequestInit): Promise<any>
+  (options: RestFetchRequestOptions, requestInit?: RequestInit): Promise<any>
 }
 
