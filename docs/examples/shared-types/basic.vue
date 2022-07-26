@@ -6,6 +6,7 @@ import type {
   NormalObject,
   ReturnVoid,
   VueComponentPropsType,
+  Media,
 } from '@vunk/core'
 import { ref, unref } from 'vue'
 import { ElButton } from 'element-plus'
@@ -53,6 +54,12 @@ export default {
       // size: 'default'
     }
 
+    /* Media */
+    const g: Media = {
+      label: 'label',
+      value: 100,
+    }
+
     return {}
   },
 }
@@ -93,6 +100,13 @@ export default {
     <li>
       <span>VueComponentPropsType:</span>
       <span>返回 vue 组件的 props 类型</span>
+    </li>
+
+    <h4>for data</h4>
+
+    <li>
+      <span>Media:</span>
+      <span>包含 label value 的对象类型</span>
     </li>
 
   </ul>
