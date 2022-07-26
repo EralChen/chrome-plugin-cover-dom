@@ -3,7 +3,6 @@
   "version": "0.0.0-alpha.1",
   "description": "",
   "main": "index.ts",
-  "module": "index.esm.js",
   "scripts": {
     "build": "gulp -f gulpfile.ts"
   },

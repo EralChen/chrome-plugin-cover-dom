@@ -1,13 +1,13 @@
 import {series} from 'gulp'
-import fs from 'fs/promises'
+import fsp from 'fs/promises'
 import path from 'path'
 import { entryPackage, distDir } from '@lib-env/path'
-import { run, taskWithName } from '@lib-env/shared'
+import { readJson, run, taskWithName, writeJson } from '@lib-env/shared'
 
 export default series(
   taskWithName('update:vision', async () => {
-    const file = await fs.readFile(entryPackage)
-    const fileObj:{ version: string; module: string } = JSON.parse(file.toString())
+
+    const fileObj = readJson(entryPackage) as { version: string; module: string }
     
     // 默认小版本+1
     const versionList = fileObj.version.split('.')
@@ -16,20 +16,24 @@ export default series(
       versionList[versionList.length - 1] = +sVersion + 1 + ''
     }
     fileObj.version = versionList.join('.')
+ 
+    await writeJson(entryPackage, fileObj, 2)
 
-    // 将入口改为 index.esm.js
-    fileObj.module = 'index.esm.js'
-        
-    const nFileStr = JSON.stringify(fileObj, null, 2)
-
-    
-    await fs.writeFile(entryPackage, nFileStr)
   }),
   taskWithName('destPkg', async () => {
-    fs.cp(
+    const distPkgFile = path.resolve(distDir, './package.json')
+
+    await fsp.cp(
       entryPackage,
-      path.resolve(distDir, './package.json'),
+      distPkgFile,
     )
+    // 处理 pkg
+    const jsonObj = readJson(distPkgFile) as { module: string, main: string }
+    jsonObj.module = 'index.esm.js'
+    jsonObj.main = 'index.esm.js'
+
+    await writeJson(distPkgFile, jsonObj, 2)
+    
   }),
   taskWithName('publish', async () => {
     run(
