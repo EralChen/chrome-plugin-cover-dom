@@ -38,6 +38,6 @@
 		"cc": "gulp -f scripts/create/component/index.ts",
 		"ccd": "gulp -f scripts/create/component-docs/index.ts",
 		"run:test": "gulp -f scripts/test.ts",
-		"rm:nm": "gulp -f scripts/rm-nm.ts"
+		"rm:nm": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +"
 	}
 }
