@@ -20,7 +20,8 @@
         target="_blank"
         rel="noopener noreferer"
         >Element Plus</a
-      >
+      > <br>
+      provides the docs temp
     </p>
   </div>
 </template>

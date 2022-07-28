@@ -13,7 +13,7 @@ const onClick = (item: string) => {
 <template>
   <div class="page-resource">
     <h1>{{ resourceLang.title }}</h1>
-    <p>{{ resourceLang.lineOne }}</p>
+    <!-- <p>{{ resourceLang.lineOne }}</p>
     <p v-html="resourceLang.lineTwo" />
     <div class="flex flex-wrap justify-center mt-32px">
       <div class="inline-flex w-full md:w-1/3" p="2" pl-0>
@@ -64,7 +64,7 @@ const onClick = (item: string) => {
           </a>
         </el-card>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -72,7 +72,7 @@ const onClick = (item: string) => {
 .page-resource {
   box-sizing: border-box;
   padding: 0 40px;
-
+  min-height: 100vh;
   h1 {
     color: var(--text-color);
     margin-bottom: 24px;

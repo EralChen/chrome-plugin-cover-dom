@@ -122,7 +122,7 @@ useEventListener(window, 'scroll', handleScroll)
     </div>
     <div ref="jumbotronRef" class="jumbotron">
       <div class="parallax-container" :style="containerStyle">
-        <div :style="cardStyle">
+        <!-- <div :style="cardStyle">
           <screen-svg :style="screenLayer" alt="banner" />
           <people-svg
             :style="peopleLayer"
@@ -133,7 +133,7 @@ useEventListener(window, 'scroll', handleScroll)
           <left-layer-svg :style="leftLayer" alt="banner" />
           <left-bottom-layer-svg :style="leftBottomLayer" alt="banner" />
           <right-layer-svg :style="rightLayer" alt="banner" />
-        </div>
+        </div> -->
       </div>
     </div>
     <img
@@ -145,7 +145,7 @@ useEventListener(window, 'scroll', handleScroll)
     <HomeThanks></HomeThanks>
     <HomeCards />
   </div>
-  <HomeFooter />
+  <!-- <HomeFooter /> -->
 </template>
 
 <style lang="scss">
