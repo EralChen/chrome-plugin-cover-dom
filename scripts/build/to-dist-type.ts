@@ -44,18 +44,31 @@ export default series(
     }
 
     /* 如果 distTypesDir 中存在 entry, 将entry中的文件 拷贝到dist */
-    const distTypesEntryDir = path.resolve(distTypesDir, LIB_ENTRY_DIRNAME)
-    if (fs.existsSync(distTypesEntryDir)) {
-      await fsp.cp(distTypesEntryDir, distDir, {
-        recursive: true,
-      })
-    }
+    const distTypesEntryDirs = [
+      path.resolve(distTypesDir, LIB_ENTRY_DIRNAME),
+      path.resolve(distTypesDir, 'packages', LIB_ENTRY_DIRNAME),
+    ]
+    distTypesEntryDirs.forEach(async item => {
+      if (fs.existsSync(item)) {
+        await fsp.cp(item, distDir, {
+          recursive: true,
+        })
+      }
+    })
 
+    /* rename */
     const distEntryDts = path.resolve(distDir, `${LIB_ENTRY_FLIENAME}.d.ts`)
     if (fs.existsSync(distEntryDts)) {
       await fsp.rename(distEntryDts, path.resolve(distDir, `index.d.ts`))
     }
 
     
+  }),
+
+  taskWithName('clear types', async () => {
+    await fsp.rm(distTypesDir, {
+      force: true,
+      recursive: true,
+    })
   }),
 )
