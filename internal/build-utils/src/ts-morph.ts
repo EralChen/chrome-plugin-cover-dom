@@ -9,9 +9,15 @@ import { bold } from 'chalk'
 import { fixPath } from  './utils'
 import consola from 'consola'
 
-export async function genTypes (opts: {
+export async function genTypes (opts = {} as {
   filesRoot: string
+  source?: string
 }) { // 生成一个 .d.ts
+  const _opts = {
+    source: '**/*',
+    ...opts,
+  } as Required<typeof opts>
+
   const project = new Project({
     compilerOptions: {
       allowJs: true,
@@ -20,6 +26,7 @@ export async function genTypes (opts: {
       noEmitOnError: true,
       strict: false,
       disableSizeLimit: true,
+      esModuleInterop: true,
       outDir: distTypesDir,
       baseUrl: workRoot,
       preserveSymlinks: true,
@@ -35,8 +42,8 @@ export async function genTypes (opts: {
     skipAddingFilesFromTsConfig: true,
   })
 
-  const filePaths = await glob('**/*', {
-    cwd: opts.filesRoot,
+  const filePaths = await glob(_opts.source, {
+    cwd: _opts.filesRoot,
     onlyFiles: true,
     absolute: true,
     ignore: ['gulpfile.ts', 'package.json', 'node_modules', '**/README.md'],
@@ -82,9 +89,9 @@ export async function genTypes (opts: {
   ])
 
   const diagnostics = project.getPreEmitDiagnostics()
-  // green(
-  project.formatDiagnosticsWithColorAndContext(diagnostics)
-  // )
+  consola.warn(
+    project.formatDiagnosticsWithColorAndContext(diagnostics),
+  )
 
   // 发射.d.ts 文件到内存
   await project.emit({
