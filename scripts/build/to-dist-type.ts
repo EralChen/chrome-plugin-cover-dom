@@ -48,13 +48,19 @@ export default series(
       path.resolve(distTypesDir, LIB_ENTRY_DIRNAME),
       path.resolve(distTypesDir, 'packages', LIB_ENTRY_DIRNAME),
     ]
-    distTypesEntryDirs.forEach(async item => {
-      if (fs.existsSync(item)) {
-        await fsp.cp(item, distDir, {
-          recursive: true,
-        })
-      }
-    })
+
+    await Promise.all(
+
+      distTypesEntryDirs.map(async item => {
+        if (fs.existsSync(item)) {
+          return fsp.cp(item, distDir, {
+            recursive: true,
+          })
+        }
+      }),
+      
+    )
+
 
     /* rename */
     const distEntryDts = path.resolve(distDir, `${LIB_ENTRY_FLIENAME}.d.ts`)
