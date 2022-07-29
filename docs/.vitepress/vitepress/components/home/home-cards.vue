@@ -15,7 +15,7 @@ const homeLang = computed(() => homeLocale[lang.value])
           <guide-svg w="40" m="y-12" />
           <h3>{{ homeLang['3'] }}</h3>
           <p>{{ homeLang['4'] }}</p>
-          <a :href="`/${lang}/guide/design.html`">{{ homeLang['5'] }}</a>
+          <a :href="`/${lang}/guide/installation.html`">{{ homeLang['5'] }}</a>
         </div>
       </li>
       <li>

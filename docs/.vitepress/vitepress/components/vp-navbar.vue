@@ -22,7 +22,7 @@ const currentLink = computed(() => {
     return `/${page.value?.frontmatter?.lang || ''}/`
   }
   const existLangIndex = theme.value.langs.findIndex((lang) =>
-    window?.location?.pathname.startsWith(`/${lang}`)
+    window?.location?.pathname.startsWith(`/${lang}`),
   )
 
   return existLangIndex === -1 ? '/' : `/${theme.value.langs[existLangIndex]}/`
@@ -34,19 +34,20 @@ const currentLink = computed(() => {
     <div class="header-container">
       <div class="logo-container">
         <a :href="currentLink">
-          <img
+          @vunk/skzz
+          <!-- <img
             class="logo"
             src="/images/element-plus-logo.svg"
             alt="Element Plus Logo"
-          />
+          /> -->
         </a>
       </div>
       <div class="content">
-        <VPNavbarSearch class="search" :options="theme.agolia" multilang />
+        <!-- <VPNavbarSearch class="search" :options="theme.agolia" multilang /> -->
         <VPNavbarMenu class="menu" />
         <VPNavbarThemeToggler class="theme-toggler" />
-        <VPNavbarTranslation class="translation" />
-        <VPNavbarSocialLinks class="social-links" />
+        <!-- <VPNavbarTranslation class="translation" /> -->
+        <!-- <VPNavbarSocialLinks class="social-links" /> -->
         <VPNavbarHamburger
           :active="fullScreen"
           class="hamburger"
