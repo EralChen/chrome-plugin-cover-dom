@@ -14,7 +14,7 @@ export default series(
       cwd: cssOutPath,
       onlyFiles: true,
     })
-
+    if (!cssFiles.length) return
     src(
       cssFiles.map(css => path.resolve(cssOutPath, css)),
     )
