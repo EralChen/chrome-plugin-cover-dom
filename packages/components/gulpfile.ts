@@ -62,29 +62,5 @@ export default  series(
   
   ),
 
-  // 合并所有css到入口
-  // taskWithName('buildCss', async () => {
-
-  //   const cssOutPath = path.resolve(outDir, './components')
-
-  //   const cssFiles = sync('**/*.css', {
-  //     cwd: cssOutPath,
-  //     onlyFiles: true,
-  //   })
-
-  //   src(
-  //     cssFiles.map(css => path.resolve(cssOutPath, css)),
-  //   )
-  //     .pipe(
-  //       concat('index.css'),
-  //     )
-  //     .pipe(
-  //       dest(
-  //         path.resolve(outDir),
-  //       ),
-  //     )
-    
-  // }),
-  
 )
 

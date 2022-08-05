@@ -15,12 +15,13 @@ const getOutputFile = (filePath: string) => path.resolve(
       .replace('.ts', '.js')
   }`,
 )
+const buildFile = '**/index.ts'
 
 export default series(
 
   taskWithName('bundleSharedJs', async () => {
 
-    const filePaths = await glob('**/*', {
+    const filePaths = await glob(buildFile, {
       cwd: path.resolve(__dirname, './'),
       onlyFiles: true,
       absolute: true,
@@ -44,6 +45,7 @@ export default series(
   taskWithName('genSharedTypes', async () => {
     genTypes({
       filesRoot: path.resolve(__dirname),
+      source: buildFile,
     })
   }),
 
