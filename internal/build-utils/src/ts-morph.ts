@@ -6,7 +6,7 @@ import glob from 'fast-glob'
 import fs from 'fs/promises'
 import * as vueCompiler from '@vue/compiler-sfc'
 import { bold } from 'chalk'
-import { fixPath } from  './utils'
+import { fixPath } from  '@lib-env/build-utils'
 import consola from 'consola'
 
 export async function genTypes (opts = {} as {
