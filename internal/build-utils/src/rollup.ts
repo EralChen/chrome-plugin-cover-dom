@@ -1,5 +1,5 @@
 
-import { fixPath } from  '@lib-env/build-utils'
+import { fixPath } from  './alias'
 import { rollup, InputOptions, OutputOptions } from 'rollup'
 import vue from 'rollup-plugin-vue'
 import css from 'rollup-plugin-css-only'
