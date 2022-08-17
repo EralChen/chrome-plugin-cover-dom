@@ -11,10 +11,7 @@
   "shared": {
     "text": "Shared 共享",
     "children": [
-      {
-        "link": "/shared-utils-fetch-rest-fetch",
-        "text": "UtilsFetch RestFetch"
-      }
+
     ]
   }
 }
