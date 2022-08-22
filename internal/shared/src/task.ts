@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 import { workRoot } from '@lib-env/path'
+import type { AnyFunc } from '@vunk/core'
 
 export const taskWithName = <T extends AnyFunc>(displayName: string,fn:T):T => {
   return Object.assign(fn, {
