@@ -2,12 +2,13 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import windowEnv from './build/plugins/window-env'
-import { getEnv } from './utils/env'
+import { windowEnvPlugin } from '@lib-env/app-utils'
+import { getEnv } from '@lib-env/app-utils'
 import path from 'path'
-import { srcRoot, workRoot } from './config/path'
+import { appRoot } from '@lib-env/path'
 import legacy from '@vitejs/plugin-legacy'
 import { viteExternalsPlugin } from 'vite-plugin-externals'
+const srcRoot = path.resolve(appRoot, './src')
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -15,7 +16,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: env.VITE_BASE_URL + '/',
     build: {
-      outDir: path.resolve(workRoot,'./dist' + env.VITE_BASE_URL),
+      outDir: path.resolve(appRoot,'./dist' + env.VITE_BASE_URL),
     },
     server: {
       host: '0.0.0.0',
@@ -31,7 +32,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       vueJSX(),
-      windowEnv(),
+      windowEnvPlugin(),
       legacy({
         modernPolyfills: ['esnext.array.at'],
       }),

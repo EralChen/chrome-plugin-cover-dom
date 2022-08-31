@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@element-plus/utils': workspace:*
+      '@lib-env/app-utils': workspace:*
       '@lib-env/build-constants': workspace:*
       '@lib-env/build-utils': workspace:*
       '@lib-env/eslint-config': workspace:*
@@ -38,6 +39,7 @@ importers:
       '@vueuse/core': 8.9.4_vue@3.2.37
       '@vunk/core': 0.0.0-alpha.2
     devDependencies:
+      '@lib-env/app-utils': link:internal/app-utils
       '@lib-env/build-constants': link:internal/build-constants
       '@lib-env/build-utils': link:internal/build-utils
       '@lib-env/eslint-config': link:internal/eslint-config

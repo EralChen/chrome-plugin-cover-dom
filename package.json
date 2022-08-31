@@ -1,5 +1,6 @@
 {
 	"devDependencies": {
+		"@lib-env/app-utils": "workspace:*",
 		"@lib-env/build-constants": "workspace:*",
 		"@lib-env/build-utils": "workspace:*",
 		"@lib-env/eslint-config": "workspace:*",

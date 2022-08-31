@@ -1,7 +1,7 @@
 import { PluginOption } from 'vite'
 import { getEnv } from '../env'
 
-export default function windowEnvPlugin (): PluginOption {
+export function windowEnvPlugin (): PluginOption {
   let mode = ''
   
   return {
