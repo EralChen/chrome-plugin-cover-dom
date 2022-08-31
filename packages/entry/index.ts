@@ -1,7 +1,7 @@
 import installer from './defaults'
-export * from '@vunk-skzz/shared'
+export * from '@skzz-app/shared'
 export const install = installer.install
 export default installer
 
-export * from '@vunk-skzz/components/hello'
+export * from '@skzz-app/components/hello'
 /* [PLACEHOLDER] components export */

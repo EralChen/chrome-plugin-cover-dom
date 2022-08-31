@@ -46,7 +46,7 @@ languages.forEach((lang) => {
 })
 
 export const config: UserConfig = {
-  title: '@vunk/skzz',
+  title: '@skzz/app',
   description: 'From dev. To dev',
   lastUpdated: true,
   head,

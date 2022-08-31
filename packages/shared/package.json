@@ -1,5 +1,5 @@
 {
-  "name": "@vunk-skzz/shared",
+  "name": "@skzz-app/shared",
   "private": true,
   "module": "index.ts",
   "scripts": {
