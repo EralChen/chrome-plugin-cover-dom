@@ -5,7 +5,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   setup () {
     const user = useUserStore()
-    const name = user.userInfo.username
+    const name = user.userInfo
     getTestData().then(res => {
       console.log(res)
     })

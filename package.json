@@ -19,21 +19,21 @@
 		"sucrase": "^3.24.0",
 		"tsx": "^3.8.0",
 		"unbuild": "^0.7.4",
-		"vitest": "^0.18.1",
-		"vue": "^3.2.37"
+		"vite": "^3.0.9",
+		"vitest": "^0.18.1"
 	},
 	"dependencies": {
 		"@element-plus/utils": "workspace:*",
-		"@vueuse/core": "^8.7.5",
 		"@skzz-app/components": "workspace:*",
 		"@skzz-app/shared": "workspace:*",
-		"@vunk/core": "0.0.0-alpha.2",
-		"@skzz/app": "workspace:*"
+		"@skzz/app": "workspace:*",
+		"@vueuse/core": "^8.7.5",
+		"@vunk/core": "0.0.0-alpha.31",
+		"vue": "^3.2.38"
 	},
 	"scripts": {
 		"dev": "pnpm run -C app dev",
 		"build": "pnpm run -C app build",
-
 		"lib:build": "gulp -f scripts/build/index.ts",
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",

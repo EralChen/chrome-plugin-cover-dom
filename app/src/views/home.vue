@@ -8,4 +8,8 @@ export default defineComponent({
 </script>
 <template>
   <div>home</div>
+  <div>
+    <svg-icon iconClass="home-indicator"></svg-icon>
+  </div>
+ 
 </template>

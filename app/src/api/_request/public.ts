@@ -1,4 +1,4 @@
-import { RestFetch } from 'vunk/shared/utils-fetch'
+import { RestFetch } from '@vunk/core/shared/utils-fetch'
 // RestFetch类是对 fetch的一层封装，你可能暂时不用去理解它
 const restFetch = new RestFetch({
   // baseURL是默认的基础请求路径
