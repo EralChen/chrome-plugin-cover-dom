@@ -11,5 +11,4 @@ export default defineComponent({
   <div>
     <svg-icon iconClass="home-indicator"></svg-icon>
   </div>
- 
 </template>
