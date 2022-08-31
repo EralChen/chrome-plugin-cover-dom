@@ -1,6 +1,6 @@
 export const LIB_NAME = '@skzz/app'
 export const LIB_ALIAS = LIB_NAME.replace('/', '-') as '@skzz-app'
-export const LIB_PRE = 'vk'
+export const LIB_PRE = 'sa'
 export const LIB_ENTRY_DIRNAME = 'entry'
 export const LIB_ENTRY_FLIENAME = 'index'
 
