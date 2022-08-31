@@ -24,3 +24,6 @@ export const vpRoot = path.resolve(docRoot, '.vitepress')
 // package.json
 export const docPackage = path.resolve(docRoot, 'package.json')
 export const entryPackage = path.resolve(pkgsEntryDir, 'package.json')
+
+// app
+export const appRoot = path.resolve(workRoot, 'app')

@@ -30,8 +30,10 @@
 		"@skzz/app": "workspace:*"
 	},
 	"scripts": {
-		"dev": "pnpm run docs:dev",
-		"build": "gulp -f scripts/build/index.ts",
+		"dev": "pnpm run -C app dev",
+		"build": "pnpm run -C app build",
+
+		"lib:build": "gulp -f scripts/build/index.ts",
 		"stub": "pnpm run -r --parallel stub",
 		"postinstall": "pnpm stub",
 		"docs:dev": "pnpm run -C docs dev",
