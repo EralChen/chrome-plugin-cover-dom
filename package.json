@@ -28,6 +28,7 @@
 		"@skzz-app/shared": "workspace:*",
 		"@skzz/app": "workspace:*",
 		"@vunk/core": "0.0.0-alpha.31",
+		"element-plus": "npm:element-plus@latest",
 		"vue": "^3.2.38"
 	},
 	"scripts": {
