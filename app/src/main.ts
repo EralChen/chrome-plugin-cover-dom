@@ -7,6 +7,7 @@ import { VkSvgIcon } from '@vunk/core'
 import ElementPlus from 'element-plus'
 import 'virtual:svg-icons-register'
 import './styles'
+import 'uno.css'
 
 createApp(App)
   .use(router)
