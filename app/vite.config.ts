@@ -8,7 +8,23 @@ import path from 'path'
 import { appRoot } from '@lib-env/path'
 import legacy from '@vitejs/plugin-legacy'
 import { viteExternalsPlugin } from 'vite-plugin-externals'
+import unocss from 'unocss/vite'
+import { presetAttributify } from 'unocss'
+import { presetFlex, presetFont, presetGap } from 'unocss-preset-vunk'
+
 const srcRoot = path.resolve(appRoot, './src')
+
+const sizeTheme = {
+  xxxl: '1.4rem',
+  xxl: '1.3rem',
+  xl: '1.2rem',
+  l: '1.1rem',
+  m: '1rem',
+  s: '.9rem',
+  xs: '.8rem',
+  xxs: '.7rem',
+  xxxs: '.5rem',
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -33,6 +49,20 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueJSX(),
       windowEnvPlugin(),
+      unocss({
+        presets: [
+          presetAttributify(),
+          presetFont({
+            theme: sizeTheme,
+          }),
+          presetGap({
+            theme: sizeTheme,
+          }),
+          presetFlex({
+            prefix: 'sk',
+          }),
+        ],
+      }),
       legacy({
         modernPolyfills: ['esnext.array.at'],
       }),
