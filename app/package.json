@@ -20,6 +20,8 @@
     "@vue/compiler-sfc": "^3.2.38",
     "unocss": "0.33.5",
     "unocss-preset-vunk": "^1.0.1",
+    "vite": "npm:vite@latest",
+    "vite-plugin-chrome-extension": "^0.0.7",
     "vite-plugin-externals": "^0.5.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^0.40.5"

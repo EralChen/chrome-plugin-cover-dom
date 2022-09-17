@@ -1,3 +1,7 @@
+
+let __unconfig_data;
+let __unconfig_stub = function (data = {}) { __unconfig_data = data };
+__unconfig_stub.default = (data = {}) => { __unconfig_data = data };
 import { defineConfig, PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
@@ -8,7 +12,7 @@ import path from 'path'
 import { appRoot } from '@lib-env/path'
 import legacy from '@vitejs/plugin-legacy'
 import { viteExternalsPlugin } from 'vite-plugin-externals'
-import unocss from 'unocss/vite'
+const unocss = __unconfig_stub;
 import { presetAttributify } from 'unocss'
 import { presetFlex, presetFont, presetGap } from 'unocss-preset-vunk'
 import { chromeExtension } from 'vite-plugin-chrome-extension'
@@ -27,7 +31,7 @@ const sizeTheme = {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+const __unconfig_default =  defineConfig(({ mode }) => {
   const env = getEnv(mode)
   return {
     base: env.VITE_BASE_URL + '/',
@@ -99,3 +103,5 @@ export default defineConfig(({ mode }) => {
   }
 
 })
+
+if (typeof __unconfig_default === "function") __unconfig_default(...[{"command":"serve","mode":"development"}]);export default __unconfig_data;
