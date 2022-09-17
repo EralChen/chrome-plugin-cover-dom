@@ -1,0 +1,22 @@
+#coverDom{
+  --bg-color: transparent;
+  position: fixed;
+  z-index: 100001;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  
+}
+#coverDom > * {
+  pointer-events: initial;
+}
+
+#coverDom .cover-dom-main{
+  width: 60vw;
+  height: 35px;
+  background-image: radial-gradient(transparent 1px,var(--bg-color) 1px);
+  background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(8px);
+}

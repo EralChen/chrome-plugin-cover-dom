@@ -10,7 +10,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "types": [
-      "node"
+      "node",
+      "chrome"
     ],
     "baseUrl": ".",
     "paths": {
