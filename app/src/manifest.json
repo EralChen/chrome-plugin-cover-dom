@@ -8,7 +8,9 @@
           "48": "assets/icon48.png",
           "128": "assets/icon128.png"
       },
-      "default_title": "Vue Popup"
+      "default_title": "A Cover Dom",
+      "default_popup": "./popup/index.html"
+
   },
   "icons": {
       "16": "assets/icon16.png",

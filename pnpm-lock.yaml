@@ -17,7 +17,7 @@ importers:
       '@types/chrome': ^0.0.197
       '@types/gulp': ^4.0.9
       '@types/node': ^18.0.4
-      '@vunk/core': 0.0.0-alpha.31
+      '@vunk/core': 0.0.0-alpha.41
       consola: ^2.15.3
       element-plus: npm:element-plus@latest
       eslint: ^8.19.0
@@ -38,7 +38,7 @@ importers:
       '@skzz-app/components': link:packages/components
       '@skzz-app/shared': link:packages/shared
       '@skzz/app': link:packages/entry
-      '@vunk/core': 0.0.0-alpha.31
+      '@vunk/core': 0.0.0-alpha.41
       element-plus: 2.2.17_vue@3.2.38
       vue: 3.2.38
     devDependencies:
@@ -2981,8 +2981,8 @@ packages:
       - vue
     dev: false
 
-  /@vunk/core/0.0.0-alpha.31:
-    resolution: {integrity: sha512-RTCg9D3BF36zMHdbJ1kqiykMMIfqcfkmPyJHuDZx7oDd65kyHtY+cPhCL/9dpIEed5ETCzEtw381x5j40XIBDw==}
+  /@vunk/core/0.0.0-alpha.41:
+    resolution: {integrity: sha512-f5Q9FYGua7dj1NbyRngpkDxRURaF/fD4Fy7tS/ZWIHxvsJGDPGJxhZy08Yi3o6y7A5cfSY5UC31qK/1xp48GyA==}
     dev: false
 
   /acorn-jsx/5.3.2_acorn@8.7.1:

@@ -19,7 +19,9 @@ export default defineConfig(({ mode }) => {
       
       outDir: path.resolve(appRoot,'./dist' + env.VITE_BASE_URL),
       rollupOptions: {
-        input: 'src/manifest.json',
+        input: {
+          manifest: path.resolve(srcRoot, './manifest.json'),
+        },
       },
     },
     server: {
@@ -49,22 +51,6 @@ export default defineConfig(({ mode }) => {
 
     ],
 
-    css: {
-      postcss: {
-        plugins: [
-          {
-            postcssPlugin: 'internal:charset-removal',
-            AtRule: {
-              charset: (atRule) => {
-                if (atRule.name === 'charset') {
-                  atRule.remove()
-                }
-              },
-            },
-          },
-        ],
-      },
-    },
 
   }
 
