@@ -12,6 +12,9 @@ const { style } = useDraggable(el, {
 const height = ref(40)
 const vw = ref(60)
 const handleHeight = (e: WheelEvent) => {
+  e.stopPropagation()
+  e.preventDefault()
+  if (height.value <= 20) return
   height.value += e.deltaY / 40
 }
 
@@ -41,7 +44,7 @@ chrome.runtime.onMessage
     style="position: absolute;"
     @click="vw+=2"
     @contextmenu.prevent="vw-=2"
-    @wheel.stop="handleHeight"
+    @wheel="handleHeight"
     
   >
   </div>
