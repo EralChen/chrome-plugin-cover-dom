@@ -5,6 +5,9 @@ import { ref } from 'vue'
 import { loadStyleString } from '@vunk/core/shared/utils-dom'
 
 const open = ref(false)
+chrome.storage.sync.get('open', (e) => {
+  open.value = !!e.open
+})
 
 const openChange = async (v: string | number | boolean) => {
   let tabs = await chrome.tabs.query({  // 获取当前激活的tab
@@ -22,7 +25,8 @@ function sendMessageToTabs (tabs: chrome.tabs.Tab[], data: NormalObject) {
       chrome.tabs
         .sendMessage(tab.id, data)
         .then((response) => {
-          console.log(response.response)
+          chrome.storage.sync.set({ open: open.value })
+
         })
     }
   }
